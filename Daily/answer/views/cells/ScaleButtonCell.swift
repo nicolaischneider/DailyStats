@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ScaleButtonCell: UICollectionViewCell {
+class ScaleButtonCell: CollectionViewCellPress {
     
     let bgView: UIView = {
         let view = UIView()

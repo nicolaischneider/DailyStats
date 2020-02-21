@@ -334,52 +334,16 @@
                                     <action selector="deleteAction:" destination="Qbt-rd-d6c" eventType="touchUpInside" id="krh-IO-wMB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type: Yes / No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdH-rs-Jn0">
-                                <rect key="frame" x="20" y="379" width="335" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="OMY-Kn-hsJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of creation: 22/03/20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-7c-7xa">
-                                <rect key="frame" x="20" y="409" width="335" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Qxq-xq-7bW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Times answered: 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5mP-9T-GHe">
-                                <rect key="frame" x="20" y="439" width="335" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="MSX-4X-NoT"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="g9L-iC-Mqf" firstAttribute="bottom" secondItem="wKI-BE-5MS" secondAttribute="bottom" constant="20" id="2Hh-8p-WZt"/>
                             <constraint firstAttribute="trailing" secondItem="bln-iM-tHV" secondAttribute="trailing" id="2aE-Mc-4y5"/>
-                            <constraint firstItem="g9L-iC-Mqf" firstAttribute="trailing" secondItem="KfL-7c-7xa" secondAttribute="trailing" constant="20" id="7fy-pm-VbO"/>
-                            <constraint firstItem="5mP-9T-GHe" firstAttribute="leading" secondItem="g9L-iC-Mqf" secondAttribute="leading" constant="20" id="FrJ-NX-d9m"/>
                             <constraint firstItem="gBJ-cv-Gtk" firstAttribute="top" secondItem="lok-JN-aFX" secondAttribute="bottom" constant="10" id="FwK-3b-ljz"/>
                             <constraint firstItem="gBJ-cv-Gtk" firstAttribute="leading" secondItem="g9L-iC-Mqf" secondAttribute="leading" constant="20" id="IEs-sD-xEB"/>
-                            <constraint firstItem="g9L-iC-Mqf" firstAttribute="trailing" secondItem="tdH-rs-Jn0" secondAttribute="trailing" constant="20" id="IWY-AR-GRM"/>
-                            <constraint firstItem="5mP-9T-GHe" firstAttribute="top" secondItem="KfL-7c-7xa" secondAttribute="bottom" constant="5" id="Obi-Qb-CVq"/>
-                            <constraint firstItem="tdH-rs-Jn0" firstAttribute="top" secondItem="bln-iM-tHV" secondAttribute="bottom" constant="25" id="Sj5-47-WoO"/>
-                            <constraint firstItem="KfL-7c-7xa" firstAttribute="top" secondItem="tdH-rs-Jn0" secondAttribute="bottom" constant="5" id="VPQ-Hz-WTJ"/>
                             <constraint firstItem="g9L-iC-Mqf" firstAttribute="trailing" secondItem="lok-JN-aFX" secondAttribute="trailing" constant="30" id="Wxv-B2-oFb"/>
                             <constraint firstItem="bln-iM-tHV" firstAttribute="top" secondItem="gBJ-cv-Gtk" secondAttribute="bottom" constant="20" id="YRn-kQ-yPd"/>
                             <constraint firstItem="g9L-iC-Mqf" firstAttribute="trailing" secondItem="gBJ-cv-Gtk" secondAttribute="trailing" constant="20" id="ZY5-ei-bLm"/>
-                            <constraint firstItem="KfL-7c-7xa" firstAttribute="leading" secondItem="g9L-iC-Mqf" secondAttribute="leading" constant="20" id="aBf-Gc-Yuq"/>
-                            <constraint firstItem="g9L-iC-Mqf" firstAttribute="trailing" secondItem="5mP-9T-GHe" secondAttribute="trailing" constant="20" id="bY6-L3-yyP"/>
-                            <constraint firstItem="tdH-rs-Jn0" firstAttribute="leading" secondItem="g9L-iC-Mqf" secondAttribute="leading" constant="20" id="cW0-1A-YJF"/>
                             <constraint firstItem="wKI-BE-5MS" firstAttribute="leading" secondItem="g9L-iC-Mqf" secondAttribute="leading" constant="50" id="ku3-9t-yY4"/>
                             <constraint firstItem="g9L-iC-Mqf" firstAttribute="trailing" secondItem="wKI-BE-5MS" secondAttribute="trailing" constant="50" id="mhx-rF-7LZ"/>
                             <constraint firstItem="lok-JN-aFX" firstAttribute="top" secondItem="g9L-iC-Mqf" secondAttribute="top" constant="30" id="yio-JE-53f"/>
@@ -389,10 +353,7 @@
                     </view>
                     <connections>
                         <outlet property="bgView" destination="bln-iM-tHV" id="us3-YP-tjO"/>
-                        <outlet property="dateofCreationLabel" destination="KfL-7c-7xa" id="hYr-lp-H0j"/>
                         <outlet property="questionTextView" destination="rL9-s1-fmA" id="OXP-gK-nvS"/>
-                        <outlet property="timesAnsweredLabel" destination="5mP-9T-GHe" id="yXg-2y-CJC"/>
-                        <outlet property="typeLabel" destination="tdH-rs-Jn0" id="iTq-gL-nUj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Nb-H0-UOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

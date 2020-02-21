@@ -23,6 +23,7 @@
 		B12052EE23E47F28005FD629 /* SingleQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052ED23E47F28005FD629 /* SingleQuestionController.swift */; };
 		B12052F023E47F47005FD629 /* SingleQuestionContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052EF23E47F47005FD629 /* SingleQuestionContract.swift */; };
 		B13FB8DD23DE3C98003F389E /* QuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FB8DC23DE3C98003F389E /* QuestionsController.swift */; };
+		B149EA13240065A80058C45C /* QuestionsEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149EA12240065A80058C45C /* QuestionsEditor.swift */; };
 		B14E4D1323EF790900FAAF9F /* AnswerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E4D1223EF790900FAAF9F /* AnswerVC.swift */; };
 		B14E4D1623EF792500FAAF9F /* AnswerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E4D1523EF792500FAAF9F /* AnswerContract.swift */; };
 		B14E4D1823EF792F00FAAF9F /* AnswerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E4D1723EF792F00FAAF9F /* AnswerController.swift */; };
@@ -32,6 +33,11 @@
 		B160110623DE5F2800837198 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B160110523DE5F2800837198 /* Colors.swift */; };
 		B1843F1923F2297100297240 /* YesNoAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1843F1823F2297100297240 /* YesNoAnswerCell.swift */; };
 		B1843F1C23F232C800297240 /* Scale1to5AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1843F1B23F232C800297240 /* Scale1to5AnswerCell.swift */; };
+		B1BBB43F23FF127500D456D3 /* StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB43E23FF127500D456D3 /* StatsCell.swift */; };
+		B1BBB44123FF19DE00D456D3 /* QuestionStatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */; };
+		B1BBB44423FF418200D456D3 /* ButtonPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44323FF418200D456D3 /* ButtonPress.swift */; };
+		B1BBB44623FF42A300D456D3 /* CellPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44523FF42A300D456D3 /* CellPress.swift */; };
+		B1BBB44823FF439D00D456D3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44723FF439D00D456D3 /* DataManager.swift */; };
 		B1F138E723F4AF380085B10D /* ScaleButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F138E623F4AF380085B10D /* ScaleButtonCell.swift */; };
 		B1F138EA23F4B8570085B10D /* AnswerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F138E923F4B8570085B10D /* AnswerProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +82,7 @@
 		B12052ED23E47F28005FD629 /* SingleQuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuestionController.swift; sourceTree = "<group>"; };
 		B12052EF23E47F47005FD629 /* SingleQuestionContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuestionContract.swift; sourceTree = "<group>"; };
 		B13FB8DC23DE3C98003F389E /* QuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsController.swift; sourceTree = "<group>"; };
+		B149EA12240065A80058C45C /* QuestionsEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsEditor.swift; sourceTree = "<group>"; };
 		B14E4D1223EF790900FAAF9F /* AnswerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerVC.swift; sourceTree = "<group>"; };
 		B14E4D1523EF792500FAAF9F /* AnswerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerContract.swift; sourceTree = "<group>"; };
 		B14E4D1723EF792F00FAAF9F /* AnswerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerController.swift; sourceTree = "<group>"; };
@@ -85,6 +92,11 @@
 		B160110523DE5F2800837198 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B1843F1823F2297100297240 /* YesNoAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNoAnswerCell.swift; sourceTree = "<group>"; };
 		B1843F1B23F232C800297240 /* Scale1to5AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale1to5AnswerCell.swift; sourceTree = "<group>"; };
+		B1BBB43E23FF127500D456D3 /* StatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
+		B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStatType.swift; sourceTree = "<group>"; };
+		B1BBB44323FF418200D456D3 /* ButtonPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonPress.swift; sourceTree = "<group>"; };
+		B1BBB44523FF42A300D456D3 /* CellPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPress.swift; sourceTree = "<group>"; };
+		B1BBB44723FF439D00D456D3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B1F138E623F4AF380085B10D /* ScaleButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonCell.swift; sourceTree = "<group>"; };
 		B1F138E923F4B8570085B10D /* AnswerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +156,7 @@
 				B12052DF23DFA2E1005FD629 /* newquestion */,
 				B160110023DE4EF200837198 /* Model */,
 				B1F138E823F4B8410085B10D /* protocols */,
+				B1BBB44223FF414400D456D3 /* extensions */,
 				B105B23623D4F2560083C5A5 /* data */,
 				B105B20A23D4E9320083C5A5 /* Assets.xcassets */,
 				B105B20723D4E92E0083C5A5 /* Main.storyboard */,
@@ -194,6 +207,7 @@
 		B105B23623D4F2560083C5A5 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				B1BBB44723FF439D00D456D3 /* DataManager.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -231,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				B12052E323DFA342005FD629 /* SingleQuestionVC.swift */,
+				B1BBB43E23FF127500D456D3 /* StatsCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -273,9 +288,20 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		B1BBB44223FF414400D456D3 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1BBB44323FF418200D456D3 /* ButtonPress.swift */,
+				B1BBB44523FF42A300D456D3 /* CellPress.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		B1F138E823F4B8410085B10D /* protocols */ = {
 			isa = PBXGroup;
 			children = (
+				B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */,
+				B149EA12240065A80058C45C /* QuestionsEditor.swift */,
 				B1F138E923F4B8570085B10D /* AnswerProtocol.swift */,
 			);
 			path = protocols;
@@ -414,6 +440,7 @@
 			files = (
 				B14E4D1623EF792500FAAF9F /* AnswerContract.swift in Sources */,
 				B12052EA23DFA3D7005FD629 /* NewQuestionContract.swift in Sources */,
+				B1BBB44423FF418200D456D3 /* ButtonPress.swift in Sources */,
 				B12052E623DFA36E005FD629 /* NewQuestionVC.swift in Sources */,
 				B1F138E723F4AF380085B10D /* ScaleButtonCell.swift in Sources */,
 				B14E4D1823EF792F00FAAF9F /* AnswerController.swift in Sources */,
@@ -427,12 +454,17 @@
 				B1843F1923F2297100297240 /* YesNoAnswerCell.swift in Sources */,
 				B160110223DE4F1B00837198 /* Question.swift in Sources */,
 				B12052EC23E0FE57005FD629 /* ColorCell.swift in Sources */,
+				B1BBB44123FF19DE00D456D3 /* QuestionStatType.swift in Sources */,
+				B1BBB44623FF42A300D456D3 /* CellPress.swift in Sources */,
+				B149EA13240065A80058C45C /* QuestionsEditor.swift in Sources */,
 				B1843F1C23F232C800297240 /* Scale1to5AnswerCell.swift in Sources */,
 				B12052F023E47F47005FD629 /* SingleQuestionContract.swift in Sources */,
 				B16010FF23DE497D00837198 /* QuestionsContract.swift in Sources */,
 				B105B20423D4E92E0083C5A5 /* AppDelegate.swift in Sources */,
 				B105B23523D4F2320083C5A5 /* QuestionsVC.swift in Sources */,
 				B13FB8DD23DE3C98003F389E /* QuestionsController.swift in Sources */,
+				B1BBB43F23FF127500D456D3 /* StatsCell.swift in Sources */,
+				B1BBB44823FF439D00D456D3 /* DataManager.swift in Sources */,
 				B160110423DE5B4100837198 /* QuestionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

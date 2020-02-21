@@ -11,26 +11,35 @@ import UIKit
 
 class NewQuestionController: NewQuestionControllerDelegate {
     var view: UIViewController!
-    var question: Question!
+    
+    var delegate: QuestionsEditorDelegate!
+    
+    private var questionStr: String?
+    private var questionType: QuestionType?
+    private var questionColor: UIColor?
+    
+    init(view: UIViewController) {
+        self.view = view
+    }
         
     func dismissVC() {
         view.dismiss(animated: true, completion: nil)
     }
     
     func updateQuestion(question: String) {
-        self.question.question = question
+        self.questionStr = question
     }
     
     func updateTypeOfQuestion(type: QuestionTypes) {
-        self.question.type = QuestionType(type: type)
+        self.questionType = QuestionType(type: type)
     }
     
     func updateColorOfQuestion(color: UIColor) {
-        self.question.color = color
+        self.questionColor = color
     }
     
     func getSelectedColor() -> UIColor? {
-        return question.color
+        return questionColor
     }
     
     func getColorForIndex(index: Int) -> UIColor {
@@ -45,28 +54,28 @@ class NewQuestionController: NewQuestionControllerDelegate {
     }
     
     func addQuestion() {
-        guard let _ = question.question else {
+        guard let _ = questionStr else {
             print("Question is missing")
             return
         }
         
-        guard let _ = question.type else {
+        guard let _ = questionType else {
             print("Type is missing")
             return
         }
         
-        guard let _ = question.color else {
+        guard let _ = questionColor else {
             print("Color is missing")
             return
         }
         
+        let newQuestion = Question(question: questionStr!, type: questionType!, color: questionColor!)
+        // ADD DELEGATE TO TALK TO MAIN CONTROLLER
+        // MAIN CONTROLLER SHOULD THEN TALK TO DATA MANAGER
+        delegate.addQuestion(question: newQuestion)
+        
         // add question
         dismissVC()
-    }
-    
-    init(view: UIViewController) {
-        self.view = view
-        question = Question()
     }
     
 }

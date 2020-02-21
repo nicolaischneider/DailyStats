@@ -33,8 +33,8 @@ class YesNoAnswerCell: UICollectionViewCell {
         return label
     }()
     
-    let yesButton: UIButton = {
-        let button = UIButton()
+    let yesButton: ButtonPress = {
+        let button = ButtonPress()
         button.setTitle("Yes", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
@@ -48,8 +48,8 @@ class YesNoAnswerCell: UICollectionViewCell {
         return button
     }()
     
-    let noButton: UIButton = {
-        let button = UIButton()
+    let noButton: ButtonPress = {
+        let button = ButtonPress()
         button.setTitle("No", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)

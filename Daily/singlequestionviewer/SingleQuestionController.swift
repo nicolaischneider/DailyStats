@@ -11,31 +11,51 @@ import UIKit
 
 class SingleQuestionController: SingleQuestionControllerDelegate {
     var view: UIViewController!
+    var delegate: QuestionsEditorDelegate!
     var question: Question!
+    
+    init(view: UIViewController, question: Question) {
+        self.view = view
+        self.question = question
+    }
     
     func dimissVC() {
         view.dismiss(animated: true, completion: nil)
     }
     
     func deleteQuestion() {
-        // TODO
+        delegate.deleteQuestion(questionID: question.tag)
+        dimissVC()
     }
     
     func getQuestion() -> String {
         return question.question
     }
     
-    func getQuestionType() -> String {
+    func getQuestionColor() -> UIColor {
+        return question.color
+    }
+    
+    func getStat (type: QuestionStatType) -> (String, String) {
+        switch type {
+            case .type: return ("Type", getQuestionType())
+            case .dateOfCreation: return ("Created", getDateOfCreation())
+            case .timesAnswered: return ("Answered", getTimesAnswered())
+            case .stats: return ("Stats", getStats())
+        }
+    }
+    
+    private func getQuestionType() -> String {
         let type = question.type
         let typeString = type?.getTypeText()
         return typeString!
     }
     
-    func getTimesAnswered() -> String {
-        return String(question.timesAnswered)
+    private func getTimesAnswered() -> String {
+        return String(question.timesAnswered) + " times"
     }
     
-    func getDateOfCreation() -> String {
+    private func getDateOfCreation() -> String {
         let date = question.dateOfCreation
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
@@ -43,12 +63,7 @@ class SingleQuestionController: SingleQuestionControllerDelegate {
         return dateString
     }
     
-    func getQuestionColor() -> UIColor {
-        return question.color
-    }
-    
-    init(view: UIViewController, question: Question) {
-        self.view = view
-        self.question = question
+    private func getStats () -> String {
+        return "Yes: 10%, No: 90%"
     }
 }

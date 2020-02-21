@@ -11,14 +11,21 @@ import UIKit
 
 protocol QuestionsVCDelegate {
     var controller: QuestionsController! { get set }
+    
+    func reloadData()
+    func reloadLastAnswered ()
 }
 
 protocol QuestionsControllerDelegate {
-    var view: UIViewController! { get set }
+    var view: QuestionsVC! { get set }
+    var dataManager: DataManager! { get set }
     
-    func dismissVC ()
     func getQuestionAtIndex(index: Int) -> Question
+    func getNumberofQuestions() -> Int
     func getLastAnswered () -> String
+    func getStatsForQuestionAtIndex (index: Int) -> String
+    
+    // navigation
     func navigateToAddQuestion ()
     func navigateToSingleQuestion (questionIndex: Int)
     func navigateToAnswerQuestion ()

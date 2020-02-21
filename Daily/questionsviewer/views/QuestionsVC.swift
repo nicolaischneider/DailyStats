@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionsVC: UIViewController {
+class QuestionsVC: UIViewController, QuestionsVCDelegate {
     
     var controller: QuestionsController!
     
@@ -45,9 +45,16 @@ class QuestionsVC: UIViewController {
         controller.navigateToAnswerQuestion()
     }
     
+    func reloadData() {
+        tableView.reloadData()
+    }
+    
+    func reloadLastAnswered () {
+        lastAnsweredLabel.text = controller.getLastAnswered()
+    }
+    
     private func setupButton (button: UIButton) {        
         button.layer.cornerRadius = 25
-        //button.backgroundColor = .white
         button.layer.shadowColor = ColorPicker.getButtonColors(.moss).cgColor
         button.layer.shadowRadius = 4
         button.layer.shadowOpacity = 0.3
@@ -71,7 +78,7 @@ class QuestionsVC: UIViewController {
 
 extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return controller.getNumberofQuestions()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,8 +90,8 @@ extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
         cell.question.text = question.question
         cell.questionType.text = "Type: " + question.type.getTypeText()
         cell.coloredView.backgroundColor = question.color
-        cell.answeredLabel.text = "Answered " + String(indexPath.row) + " times"
-        cell.averageLabel.text = "28% Yes; 72% No"
+        cell.answeredLabel.text = "Answered " + String(question.timesAnswered) + " times"
+        cell.averageLabel.text = controller.getStatsForQuestionAtIndex(index: indexPath.row)
         
         return cell
     }
@@ -94,7 +101,6 @@ extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("hi")
         controller.navigateToSingleQuestion(questionIndex: indexPath.row)
     }
 }
