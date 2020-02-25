@@ -33,31 +33,27 @@ class QuestionsController: QuestionsControllerDelegate {
         let list = dataManager.getQuestions()
         let question = list[index]
         
-        // case: not answered yet
-        if question.timesAnswered == 0 {
-            return "Average Score: -"
-        }
-        
         switch question.type.getType() {
         case .yesNo:
-            let yesScore: Float = Float((question.stats[0] / question.timesAnswered) * 100)
-            let noScore: Float = Float((question.stats[1] / question.timesAnswered) * 100)
-            return String(yesScore) + "% Yes; " + String(noScore) + "% No"
-        case .scale1to5:
-            var score: Float = 0
-            for i in 0..<question.stats.count {
-                score += Float(i+1) * Float(question.stats[i])
+            if let scores = StatsComputer.avgStatsForYesNoQuestion(question: question) {
+                return String(scores.0) + "% Yes; " + String(scores.1) + "% No"
+            } else {
+                return "No Stats available yet."
             }
-            score = score / Float(question.timesAnswered)
-            
-            return "Average Score: " + String(score)
+        case .scale1to5:
+            if let score = StatsComputer.avgStatsForScale1to5Question(question: question) {
+                return "Average Score: " + String(score)
+            }
+            return "No Stats available yet."
         }
     }
     
     func getLastAnswered() -> String {
         if let lastAnswered = dataManager.getLastAnswered() {
-            
-            // check if user answered the day before as last answered to write yesterday instead
+            let calendar = Calendar.current
+            if calendar.isDateInYesterday(lastAnswered) {
+                return "Last answered yesterday"
+            }
             
             let dateForm = DateFormatter()
             dateForm.dateFormat = "dd.MM.yy"
@@ -68,6 +64,28 @@ class QuestionsController: QuestionsControllerDelegate {
         }
     }
     
+    func isAnswerButtonActivated() -> Bool {
+        let questions = getListOfQuestionsToAnswer()
+        //return questions.count > 0
+        return true
+    }
+    
+    private func getListOfQuestionsToAnswer () -> [Question] {
+        let questions = dataManager.getQuestions()
+        var questsToAnswer = [Question]()
+        for question in questions {
+            if let _date = question.lastAnswered {
+                let cal = Calendar.current
+                if !cal.isDateInToday(_date) {
+                    questsToAnswer.append(question)
+                }
+            } else {
+                questsToAnswer.append(question)
+            }
+        }
+        return questsToAnswer
+    }
+        
     func navigateToAddQuestion() {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let newQuestionController = storyBoard.instantiateViewController(withIdentifier: "NewQuestionViewController") as! NewQuestionVC
@@ -95,14 +113,17 @@ class QuestionsController: QuestionsControllerDelegate {
     }
     
     func navigateToAnswerQuestion() {
+        let questsToAnswer = getListOfQuestionsToAnswer()
+        if questsToAnswer.count == 0 {
+            //return
+        }
+        
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let answerController = storyBoard.instantiateViewController(withIdentifier: "AnswerViewController") as! AnswerVC
         
-        // GIVE ANSWER CONTROLLER THE LIST OF QUESTIONS
-        // CHECK WHICH ONES HAVE ALREADY BEEN ANSWERED TODAY
-        
         let questions = dataManager.getQuestions()
         answerController.controller = AnswerController(view: answerController, questions: questions)
+        answerController.controller.delegate = self
         
         // segue
         answerController.modalPresentationStyle = .fullScreen

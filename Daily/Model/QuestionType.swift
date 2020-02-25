@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum QuestionTypes {
+enum QuestionTypes: Int, Codable {
     case yesNo
     case scale1to5
 }
 
-class QuestionType {
+class QuestionType: Codable {
     private var questionType: QuestionTypes!
     private var typeText: String!
     

@@ -19,27 +19,42 @@ class DataManager: NSObject {
     
     func loadData () {
         
-        // get three test questions
-        let quest1 = Question(question: "How happy are you?", type: QuestionType.init(type: .scale1to5), color: ColorPicker.getColor(.green))
-        
-        let quest2 = Question(question: "Did you feel any dizziness when waking up?", type: QuestionType.init(type: .yesNo), color: ColorPicker.getColor(.red))
-        
-        let quest3 = Question(question: "Are you excited for today?", type: QuestionType.init(type: .yesNo), color: ColorPicker.getColor(.yellow))
-        
+        // THREE TEST QUESTIONS
+        let quest1 = Question(question: "How happy are you?", type: QuestionType.init(type: .scale1to5), color: .green)
+        let quest2 = Question(question: "Did you feel any dizziness when waking up?", type: QuestionType.init(type: .yesNo), color: .red)
+        let quest3 = Question(question: "Are you excited for today?", type: QuestionType.init(type: .yesNo), color: .yellow)
         listOfQuestions.append(quest1)
         listOfQuestions.append(quest2)
         listOfQuestions.append(quest3)
+        
+        if let questionsArray = Question.loadQuestions() {
+            listOfQuestions = questionsArray
+            print("data extracted")
+        }
         
         print("data loaded")
     }
     
     func updateData () {
-        
+        Question.updateQuestions(listOfQuestions: listOfQuestions)
     }
     
     func getLastAnswered () -> Date? {
-        // todo: go through all questions and find time that is furthes away from now
-        return Date(timeIntervalSinceNow: .zero)
+        
+        var mostCurrentDate = Date(timeIntervalSince1970: .zero)
+        var dateWasChanged = false
+        
+        for question in listOfQuestions {
+            if let _date = question.lastAnswered {
+                if _date > mostCurrentDate {
+                    mostCurrentDate = _date
+                    dateWasChanged = true
+                }
+            }
+        }
+        
+        if !dateWasChanged { return nil }
+        else { return mostCurrentDate }
     }
         
     func getQuestions () -> [Question] {
@@ -65,6 +80,7 @@ class DataManager: NSObject {
         for i in 0..<listOfQuestions.count {
             if questionID == listOfQuestions[i].tag {
                 listOfQuestions[i].stats[answerIndex] += 1
+                listOfQuestions[i].timesAnswered += 1
                 listOfQuestions[i].lastAnswered = Date(timeIntervalSinceNow: .zero)
                 break
             }

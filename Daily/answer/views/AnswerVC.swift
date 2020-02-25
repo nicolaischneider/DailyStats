@@ -15,6 +15,7 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate, AnswerDelegate {
     // objects
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var quitButton: UIButton!
+    @IBOutlet weak var questionNumber: UILabel!
     
     // question view
     private let cellNameYesNo = "answerYesNoCell"
@@ -45,13 +46,11 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate, AnswerDelegate {
     }
     
     func scale1to5QuestionWasAnsweredWith(res: Int, tag: Int) {
-        print("answered with " + String(res))
         scrollToNextItem(tag: tag)
         controller.answeredQuestion(questionTag: tag, answer: res)
     }
     
     func yesQuestionWasAnsweredWithYes(res: Bool, tag: Int) {
-        print("answered with " + String(res))
         scrollToNextItem(tag: tag)
         let res2 = (res) ? 0 : 1
         controller.answeredQuestion(questionTag: tag, answer: res2)
@@ -61,7 +60,8 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate, AnswerDelegate {
         if tag < controller.getNumOfQuestions()-1 {
             let indexPath = IndexPath(item: tag+1, section: 0)
             collectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
-        }
+        }        
+        questionNumber.text = String(tag+2)+"/"+String(controller.getNumOfQuestions())
     }
     
     private func setupObjects () {
@@ -78,6 +78,8 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate, AnswerDelegate {
         
         // edit simple stuff
         titleLabel.isHidden = true
+        questionNumber.text = "1/"+String(controller.getNumOfQuestions())
+        view.bringSubviewToFront(questionNumber)
         view.bringSubviewToFront(quitButton)
     }
 }

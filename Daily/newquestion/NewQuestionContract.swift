@@ -20,7 +20,7 @@ protocol NewQuestionControllerDelegate {
     func addQuestion ()
     func updateQuestion (question: String)
     func updateTypeOfQuestion (type: QuestionTypes)
-    func updateColorOfQuestion (color: UIColor)
-    func getColorForIndex (index: Int) -> UIColor
-    func getSelectedColor () -> UIColor?
+    func updateColorOfQuestion (color: Colors)
+    func getColorForIndex (index: Int) -> Colors
+    func getSelectedColor () -> Colors?
 }

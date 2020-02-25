@@ -11,10 +11,12 @@ import UIKit
 
 protocol AnswerViewControllerDelegate {
     var controller: AnswerController! { get set }
+    
+    func scrollToNextItem(tag: Int)
 }
 
 protocol AnswerControllerDelegate {
-    var view: UIViewController! { get set }
+    var view: AnswerVC! { get set }
     
     func dismissVC ()
     func getQuestionAtIndex (index: Int) -> Question

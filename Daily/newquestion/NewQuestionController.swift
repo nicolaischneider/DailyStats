@@ -16,7 +16,7 @@ class NewQuestionController: NewQuestionControllerDelegate {
     
     private var questionStr: String?
     private var questionType: QuestionType?
-    private var questionColor: UIColor?
+    private var questionColor: Colors?
     
     init(view: UIViewController) {
         self.view = view
@@ -34,22 +34,22 @@ class NewQuestionController: NewQuestionControllerDelegate {
         self.questionType = QuestionType(type: type)
     }
     
-    func updateColorOfQuestion(color: UIColor) {
+    func updateColorOfQuestion(color: Colors) {
         self.questionColor = color
     }
     
-    func getSelectedColor() -> UIColor? {
+    func getSelectedColor() -> Colors? {
         return questionColor
     }
     
-    func getColorForIndex(index: Int) -> UIColor {
+    func getColorForIndex(index: Int) -> Colors {
         switch index {
-            case 0: return ColorPicker.getColor(.lambsGreen)
-            case 1: return ColorPicker.getColor(.costalBlue)
-            case 2: return ColorPicker.getColor(.desertSand)
-            case 3: return ColorPicker.getColor(.coral)
-            case 4: return ColorPicker.getColor(.terracotta)
-            default: return .black
+            case 0: return .lambsGreen
+            case 1: return .costalBlue
+            case 2: return .desertSand
+            case 3: return .coral
+            case 4: return .terracotta
+            default: return .red
         }
     }
     

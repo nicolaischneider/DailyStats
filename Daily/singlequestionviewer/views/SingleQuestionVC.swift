@@ -45,7 +45,9 @@ class SingleQuestionVC: UIViewController, SingleQuestionVCDelegate {
         
         // setup question
         questionTextView.text = controller.getQuestion()
-        bgView.backgroundColor = controller.getQuestionColor()
+        
+        let questionColor = controller.getQuestionColor()
+        bgView.backgroundColor = ColorPicker.getColor(questionColor)
         
         // setup stack view
         for type in QuestionStatType.allCases {
@@ -57,8 +59,6 @@ class SingleQuestionVC: UIViewController, SingleQuestionVCDelegate {
         view.addSubview(stackView)
         stackView.topAnchor.constraint(equalTo: bgView.bottomAnchor, constant: 20).isActive = true
         stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        //stackView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        
+        stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true        
     }
 }

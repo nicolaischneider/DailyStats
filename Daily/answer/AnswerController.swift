@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 class AnswerController: AnswerControllerDelegate {
-    var view: UIViewController!
+    var view: AnswerVC!
+    var delegate: QuestionsEditorDelegate!
     var listOfQuestions = [Question]()
         
-    init(view: UIViewController, questions: [Question]) {
+    init(view: AnswerVC, questions: [Question]) {
         self.view = view
         self.listOfQuestions = questions
     }
@@ -31,8 +32,8 @@ class AnswerController: AnswerControllerDelegate {
     }
     
     func answeredQuestion (questionTag: Int, answer: Int) {
-        // create delegate to talk to main controller
-        // main controller then talks to data manger
+        let questionID = listOfQuestions[questionTag].tag
+        delegate.updateStatsOfQuestion(questionID: questionID!, answerIndex: answer)
         
         // check for last question
         if questionTag == getNumOfQuestions()-1 {

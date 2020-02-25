@@ -47,6 +47,7 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
     
     func reloadData() {
         tableView.reloadData()
+        answerButton.isEnabled = controller.isAnswerButtonActivated()
     }
     
     func reloadLastAnswered () {
@@ -68,6 +69,7 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
         // add button
         setupButton(button: addButton)
         setupButton(button: answerButton)
+        answerButton.isEnabled = controller.isAnswerButtonActivated()
         
         // table view
         tableView.register(QuestionCell.self, forCellReuseIdentifier: cellName)
@@ -85,11 +87,12 @@ extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath as IndexPath) as! QuestionCell
         
         let question = controller.getQuestionAtIndex(index: indexPath.row)
+        let questionColor = ColorPicker.getColor(question.color)
         
         // edit cell
         cell.question.text = question.question
         cell.questionType.text = "Type: " + question.type.getTypeText()
-        cell.coloredView.backgroundColor = question.color
+        cell.coloredView.backgroundColor = questionColor
         cell.answeredLabel.text = "Answered " + String(question.timesAnswered) + " times"
         cell.averageLabel.text = controller.getStatsForQuestionAtIndex(index: indexPath.row)
         

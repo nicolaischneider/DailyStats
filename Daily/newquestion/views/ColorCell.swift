@@ -40,9 +40,10 @@ class ColorCell: UICollectionViewCell {
         colorButton.layer.borderWidth = 0
     }
     
-    func setupColor (color: UIColor) {
-        colorButton.backgroundColor = color
-        colorButton.layer.shadowColor = color.cgColor
+    func setupColor (color: Colors) {
+        let convertedColor = ColorPicker.getColor(color)
+        colorButton.backgroundColor = convertedColor
+        colorButton.layer.shadowColor = convertedColor.cgColor
     }
     
     private func setupObjects () {

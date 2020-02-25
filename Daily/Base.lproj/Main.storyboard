@@ -388,18 +388,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x/y" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nea-R6-6Jb">
+                                <rect key="frame" x="50" y="718" width="275" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ga6-vf-3um"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="qo4-Yu-XCt" firstAttribute="trailing" secondItem="hhp-Mo-3Bg" secondAttribute="trailing" constant="20" id="4uT-xk-UNS"/>
+                            <constraint firstItem="qo4-Yu-XCt" firstAttribute="trailing" secondItem="nea-R6-6Jb" secondAttribute="trailing" constant="50" id="8k6-ZA-7g8"/>
                             <constraint firstItem="hhp-Mo-3Bg" firstAttribute="top" secondItem="jso-gl-5Ow" secondAttribute="bottom" constant="10" id="Osq-zM-VnF"/>
                             <constraint firstItem="hhp-Mo-3Bg" firstAttribute="leading" secondItem="qo4-Yu-XCt" secondAttribute="leading" constant="20" id="QSi-ci-Eix"/>
+                            <constraint firstItem="nea-R6-6Jb" firstAttribute="leading" secondItem="qo4-Yu-XCt" secondAttribute="leading" constant="50" id="Ut6-bq-309"/>
                             <constraint firstItem="jso-gl-5Ow" firstAttribute="top" secondItem="qo4-Yu-XCt" secondAttribute="top" constant="30" id="b4C-XK-hr7"/>
+                            <constraint firstItem="qo4-Yu-XCt" firstAttribute="bottom" secondItem="nea-R6-6Jb" secondAttribute="bottom" constant="20" id="nWZ-58-S9j"/>
                             <constraint firstItem="qo4-Yu-XCt" firstAttribute="trailing" secondItem="jso-gl-5Ow" secondAttribute="trailing" constant="20" id="oVH-fw-WOa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qo4-Yu-XCt"/>
                     </view>
                     <connections>
+                        <outlet property="questionNumber" destination="nea-R6-6Jb" id="P2s-AR-NfI"/>
                         <outlet property="quitButton" destination="jso-gl-5Ow" id="aQx-wZ-ndj"/>
                         <outlet property="titleLabel" destination="hhp-Mo-3Bg" id="soN-DN-Hom"/>
                     </connections>

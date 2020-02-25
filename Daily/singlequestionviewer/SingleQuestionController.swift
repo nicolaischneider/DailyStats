@@ -24,15 +24,29 @@ class SingleQuestionController: SingleQuestionControllerDelegate {
     }
     
     func deleteQuestion() {
-        delegate.deleteQuestion(questionID: question.tag)
-        dimissVC()
+        // Alert notification
+        let alert = UIAlertController(title: "Are you sure?", message: "Your Question and all its Stats will be deleted forever.", preferredStyle: .alert)
+        
+        // cancel quit and keep playing
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+            return
+        }
+        alert.addAction(cancelAction)
+        
+        // quit the game
+        let yesAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+            self.delegate.deleteQuestion(questionID: self.question.tag)
+            self.dimissVC()
+        }
+        alert.addAction(yesAction)
+        view.present(alert, animated: true, completion: nil)
     }
     
     func getQuestion() -> String {
         return question.question
     }
     
-    func getQuestionColor() -> UIColor {
+    func getQuestionColor() -> Colors {
         return question.color
     }
     
@@ -64,6 +78,18 @@ class SingleQuestionController: SingleQuestionControllerDelegate {
     }
     
     private func getStats () -> String {
-        return "Yes: 10%, No: 90%"
+        switch question.type.getType() {
+        case .yesNo:
+            if let scores = StatsComputer.avgStatsForYesNoQuestion(question: question) {
+                return String(scores.0) + "% Yes; " + String(scores.1) + "% No"
+            } else {
+                return "No Stats available yet."
+            }
+        case .scale1to5:
+            if let score = StatsComputer.avgStatsForScale1to5Question(question: question) {
+                return "Average Score: " + String(score)
+            }
+            return "No Stats available yet."
+        }
     }
 }

@@ -75,9 +75,10 @@ class YesNoAnswerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupColor (color: UIColor) {
-        bgView.layer.shadowColor = color.cgColor
-        bgView.backgroundColor = color
+    func setupColor (color: Colors) {
+        let convertedColor = ColorPicker.getColor(color)
+        bgView.layer.shadowColor = convertedColor.cgColor
+        bgView.backgroundColor = convertedColor
     }
     
     private func setupButtons () {

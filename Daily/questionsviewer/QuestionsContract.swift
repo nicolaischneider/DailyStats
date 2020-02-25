@@ -24,6 +24,7 @@ protocol QuestionsControllerDelegate {
     func getNumberofQuestions() -> Int
     func getLastAnswered () -> String
     func getStatsForQuestionAtIndex (index: Int) -> String
+    func isAnswerButtonActivated () -> Bool
     
     // navigation
     func navigateToAddQuestion ()

@@ -55,6 +55,7 @@ class Scale1to5AnswerCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         backgroundColor = .clear
+        self.selectedButton = nil
         setupObjects()
     }
 
@@ -62,9 +63,10 @@ class Scale1to5AnswerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupColor (color: UIColor) {
-        bgView.layer.shadowColor = color.cgColor
-        bgView.backgroundColor = color
+    func setupColor (color: Colors) {
+        let convertedColor = ColorPicker.getColor(color)
+        bgView.layer.shadowColor = convertedColor.cgColor
+        bgView.backgroundColor = convertedColor
     }
     
     private func setupCollectionView () {
@@ -114,22 +116,14 @@ extension Scale1to5AnswerCell: UICollectionViewDelegateFlowLayout, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! ScaleButtonCell
         
         cell.number.text = String(indexPath.item+1)
-        
-        // select selected button
-        if let selected = selectedButton {
-            if indexPath.item == selected {
-                cell.bgView.backgroundColor = ColorPicker.getButtonColors(.seashell)
-            } else {
-                cell.bgView.backgroundColor = .white
-            }
-        }
+        cell.bgView.backgroundColor = .white
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedButton = indexPath.item
-        collectionView.reloadData()
+        self.selectedButton = indexPath.item
+        self.collectionView.reloadData()
         delegate.scale1to5QuestionWasAnsweredWith(res: indexPath.item, tag: tag)
     }
 }

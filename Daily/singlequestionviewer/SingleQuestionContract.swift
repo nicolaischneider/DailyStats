@@ -20,6 +20,6 @@ protocol SingleQuestionControllerDelegate {
     func dimissVC ()
     func deleteQuestion ()
     func getQuestion () -> String
-    func getQuestionColor () -> UIColor
+    func getQuestionColor () -> Colors
     func getStat (type: QuestionStatType) -> (String, String)
 }

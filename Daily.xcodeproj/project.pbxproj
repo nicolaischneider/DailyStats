@@ -38,6 +38,7 @@
 		B1BBB44423FF418200D456D3 /* ButtonPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44323FF418200D456D3 /* ButtonPress.swift */; };
 		B1BBB44623FF42A300D456D3 /* CellPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44523FF42A300D456D3 /* CellPress.swift */; };
 		B1BBB44823FF439D00D456D3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44723FF439D00D456D3 /* DataManager.swift */; };
+		B1E8AA5324047BEC00ABBC73 /* StatsComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8AA5224047BEC00ABBC73 /* StatsComputer.swift */; };
 		B1F138E723F4AF380085B10D /* ScaleButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F138E623F4AF380085B10D /* ScaleButtonCell.swift */; };
 		B1F138EA23F4B8570085B10D /* AnswerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F138E923F4B8570085B10D /* AnswerProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		B1BBB44323FF418200D456D3 /* ButtonPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonPress.swift; sourceTree = "<group>"; };
 		B1BBB44523FF42A300D456D3 /* CellPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPress.swift; sourceTree = "<group>"; };
 		B1BBB44723FF439D00D456D3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		B1E8AA5224047BEC00ABBC73 /* StatsComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsComputer.swift; sourceTree = "<group>"; };
 		B1F138E623F4AF380085B10D /* ScaleButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonCell.swift; sourceTree = "<group>"; };
 		B1F138E923F4B8570085B10D /* AnswerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				B1BBB44723FF439D00D456D3 /* DataManager.swift */,
+				B1E8AA5224047BEC00ABBC73 /* StatsComputer.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1E8AA5324047BEC00ABBC73 /* StatsComputer.swift in Sources */,
 				B14E4D1623EF792500FAAF9F /* AnswerContract.swift in Sources */,
 				B12052EA23DFA3D7005FD629 /* NewQuestionContract.swift in Sources */,
 				B1BBB44423FF418200D456D3 /* ButtonPress.swift in Sources */,

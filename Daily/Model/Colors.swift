@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-public enum Colors {
-    // ??
+public enum Colors: Int, Codable {
+    // ?? - delete later
     case yellow
     case red
     case green
@@ -26,6 +26,9 @@ public enum Colors {
     case moss // main
     case seashell // type selected
     case gray // type unslected
+    
+    // default
+    case defaultCol
 }
 
 public class ColorPicker {
@@ -41,6 +44,7 @@ public class ColorPicker {
             case .desertSand: return UIColor(red: 242/255, green: 220/255, blue: 203/255, alpha: 1.0)
             case .coral: return UIColor(red: 253/255, green: 172/255, blue: 138/255, alpha: 1.0)
             case .terracotta: return UIColor(red: 227/255, green: 130/255, blue: 81/255, alpha: 1.0)
+            case .defaultCol: return UIColor.black
             
             default: return UIColor.black
         }
@@ -51,6 +55,8 @@ public class ColorPicker {
             case .moss: return UIColor(red: 88/255, green: 128/255, blue: 104/255, alpha: 1.0)
             case .seashell: return UIColor(red: 229/255, green: 176/255, blue: 164/255, alpha: 1.0)
             case .gray: return UIColor(red: 145/255, green: 143/255, blue: 145/255, alpha: 1.0)
+            case .defaultCol: return UIColor.black
+            
             default: return UIColor.black
         }
     }
