@@ -24,12 +24,12 @@ class QuestionsController: QuestionsControllerDelegate {
         return list.count
     }
     
-    func getQuestionAtIndex(index: Int) -> Question {
+    func getQuestionAtIndex (index: Int) -> Question {
         let list = dataManager.getQuestions()
         return list[index]
     }
     
-    func getStatsForQuestionAtIndex(index: Int) -> String {
+    func getStatsForQuestionAtIndex (index: Int) -> String {
         let list = dataManager.getQuestions()
         let question = list[index]
         
@@ -48,12 +48,11 @@ class QuestionsController: QuestionsControllerDelegate {
         }
     }
     
-    func getLastAnswered() -> String {
+    func getLastAnswered () -> String {
         if let lastAnswered = dataManager.getLastAnswered() {
             let calendar = Calendar.current
-            if calendar.isDateInYesterday(lastAnswered) {
-                return "Last answered yesterday"
-            }
+            if calendar.isDateInYesterday (lastAnswered) { return "Last answered yesterday" }
+            if calendar.isDateInToday (lastAnswered) { return "Last answered today" }
             
             let dateForm = DateFormatter()
             dateForm.dateFormat = "dd.MM.yy"
@@ -64,10 +63,9 @@ class QuestionsController: QuestionsControllerDelegate {
         }
     }
     
-    func isAnswerButtonActivated() -> Bool {
+    func isAnswerButtonActivated () -> Bool {
         let questions = getListOfQuestionsToAnswer()
-        //return questions.count > 0
-        return true
+        return questions.count > 0
     }
     
     private func getListOfQuestionsToAnswer () -> [Question] {
@@ -86,7 +84,7 @@ class QuestionsController: QuestionsControllerDelegate {
         return questsToAnswer
     }
         
-    func navigateToAddQuestion() {
+    func navigateToAddQuestion () {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let newQuestionController = storyBoard.instantiateViewController(withIdentifier: "NewQuestionViewController") as! NewQuestionVC
         
@@ -98,7 +96,7 @@ class QuestionsController: QuestionsControllerDelegate {
         view.present(newQuestionController, animated:true, completion:nil)
     }
     
-    func navigateToSingleQuestion(questionIndex: Int) {
+    func navigateToSingleQuestion (questionIndex: Int) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let singleQuestionController = storyBoard.instantiateViewController(withIdentifier: "SingleQuestionViewController") as! SingleQuestionVC
         
@@ -111,18 +109,27 @@ class QuestionsController: QuestionsControllerDelegate {
         singleQuestionController.modalPresentationStyle = .fullScreen
         view.present(singleQuestionController, animated:true, completion:nil)
     }
+
+    func navigateToBehaviorView () {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let behaviorController = storyBoard.instantiateViewController(withIdentifier: "BehaviorViewController") as! BehaviorVC
+        behaviorController.controller = BehaviorController(view: behaviorController)
+        
+        // segue
+        behaviorController.modalPresentationStyle = .fullScreen
+        view.present(behaviorController, animated:true, completion:nil)
+    }
     
-    func navigateToAnswerQuestion() {
+    func navigateToAnswerQuestion () {
         let questsToAnswer = getListOfQuestionsToAnswer()
         if questsToAnswer.count == 0 {
-            //return
+            return
         }
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let answerController = storyBoard.instantiateViewController(withIdentifier: "AnswerViewController") as! AnswerVC
         
-        let questions = dataManager.getQuestions()
-        answerController.controller = AnswerController(view: answerController, questions: questions)
+        answerController.controller = AnswerController(view: answerController, questions: questsToAnswer)
         answerController.controller.delegate = self
         
         // segue
@@ -130,8 +137,15 @@ class QuestionsController: QuestionsControllerDelegate {
         view.present(answerController, animated:true, completion:nil)
     }
     
-    func navigateToOthers() {
-        //todo
+    func navigateToOthers () {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let settingsController = storyBoard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsVC
+        settingsController.controller = SettingsController(view: settingsController)
+        
+        // segue
+        settingsController.modalPresentationStyle = .overCurrentContext
+        settingsController.modalTransitionStyle = .crossDissolve
+        view.present(settingsController, animated:true, completion:nil)
     }
     
     private func reloadData () {

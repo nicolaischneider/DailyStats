@@ -30,5 +30,6 @@ protocol QuestionsControllerDelegate {
     func navigateToAddQuestion ()
     func navigateToSingleQuestion (questionIndex: Int)
     func navigateToAnswerQuestion ()
+    func navigateToBehaviorView ()
     func navigateToOthers ()
 }

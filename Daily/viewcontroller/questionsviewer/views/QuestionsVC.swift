@@ -15,6 +15,7 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
     // buttons
     @IBOutlet var addButton: UIButton!
     @IBOutlet weak var answerButton: UIButton!
+    @IBOutlet weak var behaviorButton: UIButton!
     
     // labels
     @IBOutlet weak var lastAnsweredLabel: UILabel!
@@ -22,6 +23,7 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
     // table view
     @IBOutlet var tableView: UITableView!
     let cellName = "cellName"
+    let emptyCell = "emptyCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +45,10 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
     
     @IBAction func answerAction(_ sender: Any) {
         controller.navigateToAnswerQuestion()
+    }
+    
+    @IBAction func behaviorAction(_ sender: Any) {
+        controller.navigateToBehaviorView()
     }
     
     func reloadData() {
@@ -69,10 +75,12 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
         // add button
         setupButton(button: addButton)
         setupButton(button: answerButton)
+        setupButton(button: behaviorButton)
         answerButton.isEnabled = controller.isAnswerButtonActivated()
         
         // table view
         tableView.register(QuestionCell.self, forCellReuseIdentifier: cellName)
+        tableView.register(EmptyCell.self, forCellReuseIdentifier: emptyCell)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
     }
@@ -80,10 +88,16 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
 
 extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return controller.getNumberofQuestions()
+        return controller.getNumberofQuestions()+1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row == controller.getNumberofQuestions() {
+            let cell = tableView.dequeueReusableCell(withIdentifier: emptyCell, for: indexPath as IndexPath) as! EmptyCell
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellName, for: indexPath as IndexPath) as! QuestionCell
         
         let question = controller.getQuestionAtIndex(index: indexPath.row)
@@ -100,6 +114,7 @@ extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == controller.getNumberofQuestions() { return 100 }
         return 150
     }
     

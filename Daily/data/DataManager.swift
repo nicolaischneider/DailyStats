@@ -78,8 +78,9 @@ class DataManager: NSObject {
     
     func updateStatsOfQuestion (questionID: UUID, answerIndex: Int) {
         for i in 0..<listOfQuestions.count {
-            if questionID == listOfQuestions[i].tag {
-                listOfQuestions[i].stats[answerIndex] += 1
+            if questionID == listOfQuestions[i].tag {                
+                let stat = Stats(ans: answerIndex, date: Date(timeIntervalSinceNow: .zero))
+                listOfQuestions[i].stats.append(stat)
                 listOfQuestions[i].timesAnswered += 1
                 listOfQuestions[i].lastAnswered = Date(timeIntervalSinceNow: .zero)
                 break

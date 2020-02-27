@@ -78,7 +78,7 @@ class Scale1to5AnswerCell: UICollectionViewCell {
     private func setupObjects () {
         // background view
         addSubview(bgView)
-        bgView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        bgView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor, constant: -30).isActive = true
         bgView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
         bgView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
         bgView.heightAnchor.constraint(equalToConstant: 200).isActive = true
