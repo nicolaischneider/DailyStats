@@ -36,7 +36,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzg-jB-Gdh">
                                 <rect key="frame" x="10" y="693" width="355" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4t-mj-W5r">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4t-mj-W5r" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
                                         <rect key="frame" x="295" y="10" width="50" height="50"/>
                                         <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -48,7 +48,7 @@
                                             <action selector="addAction:" destination="Ct6-QA-bZ0" eventType="touchUpInside" id="mmS-R4-X5f"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A6-rR-JyO">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A6-rR-JyO" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="120" height="50"/>
                                         <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -61,7 +61,7 @@
                                             <action selector="answerAction:" destination="Ct6-QA-bZ0" eventType="touchUpInside" id="tLp-E7-FbL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2t-08-dlU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2t-08-dlU" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
                                         <rect key="frame" x="235" y="10" width="50" height="50"/>
                                         <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -356,7 +356,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBS-Jy-eam">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBS-Jy-eam" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
                                 <rect key="frame" x="20" y="397" width="157.66666666666666" height="50"/>
                                 <color key="backgroundColor" red="0.69019607843137254" green="0.37254901960784315" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -370,7 +370,7 @@
                                     <action selector="yesNoAction:" destination="1go-lj-IPz" eventType="touchUpInside" id="9Qm-qs-xNB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwD-wg-gZc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwD-wg-gZc" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
                                 <rect key="frame" x="197.66666666666663" y="397" width="157.33333333333337" height="50"/>
                                 <color key="backgroundColor" red="0.5607843137254902" green="0.72549019607843135" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -393,7 +393,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xch-sx-LUc">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xch-sx-LUc" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
                                 <rect key="frame" x="20" y="708" width="335" height="50"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -560,7 +560,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Behaviors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJZ-Mv-owQ">
-                                <rect key="frame" x="20" y="134" width="335" height="50"/>
+                                <rect key="frame" x="20" y="134" width="179.66666666666666" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="yaw-DD-BIq"/>
                                 </constraints>
@@ -568,22 +568,143 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJt-T7-UXK" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
+                                <rect key="frame" x="219.66666666666666" y="139" width="39.999999999999972" height="40"/>
+                                <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Vfg-tO-zUZ"/>
+                                    <constraint firstAttribute="width" constant="40" id="ug8-Xf-2dH"/>
+                                </constraints>
+                                <state key="normal" image="addQuestion"/>
+                                <connections>
+                                    <action selector="addBehaviorAction:" destination="6py-hH-PdL" eventType="touchUpInside" id="k1R-gF-Goh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="kUb-GU-G1a" firstAttribute="trailing" secondItem="fBS-yg-WWx" secondAttribute="trailing" constant="20" id="E06-7c-bzm"/>
                             <constraint firstItem="iJZ-Mv-owQ" firstAttribute="leading" secondItem="kUb-GU-G1a" secondAttribute="leading" constant="20" id="E0n-K3-UBf"/>
                             <constraint firstItem="fBS-yg-WWx" firstAttribute="top" secondItem="kUb-GU-G1a" secondAttribute="top" constant="30" id="M92-Wy-IfT"/>
+                            <constraint firstItem="BJt-T7-UXK" firstAttribute="leading" secondItem="iJZ-Mv-owQ" secondAttribute="trailing" constant="20" id="UeB-s9-vjE"/>
                             <constraint firstItem="iJZ-Mv-owQ" firstAttribute="top" secondItem="fBS-yg-WWx" secondAttribute="bottom" constant="10" id="nkS-Yc-nLQ"/>
-                            <constraint firstItem="kUb-GU-G1a" firstAttribute="trailing" secondItem="iJZ-Mv-owQ" secondAttribute="trailing" constant="20" id="sL0-ue-9UV"/>
+                            <constraint firstItem="BJt-T7-UXK" firstAttribute="centerY" secondItem="iJZ-Mv-owQ" secondAttribute="centerY" id="wya-fX-hTU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kUb-GU-G1a"/>
                     </view>
+                    <connections>
+                        <outlet property="plusButton" destination="BJt-T7-UXK" id="T8i-t5-LXn"/>
+                        <outlet property="titleLabell" destination="iJZ-Mv-owQ" id="8I4-6j-TgG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2UP-PH-HmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="elD-Y8-0aW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-543.20000000000005" y="951.72413793103453"/>
+        </scene>
+        <!--Add BehaviorVC-->
+        <scene sceneID="UxQ-Lq-mNE">
+            <objects>
+                <viewController storyboardIdentifier="AddBehaviorViewController" id="XgB-71-pvr" customClass="AddBehaviorVC" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q0B-FL-4QU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W0z-Dx-RXa">
+                                <rect key="frame" x="305" y="74" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="12L-n1-mJU"/>
+                                    <constraint firstAttribute="width" constant="50" id="4it-gZ-Jm6"/>
+                                </constraints>
+                                <state key="normal" image="quit"/>
+                                <connections>
+                                    <action selector="quitAction:" destination="XgB-71-pvr" eventType="touchUpInside" id="hTz-X8-a7F"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mUJ-Ho-jlf">
+                                <rect key="frame" x="20" y="252" width="335" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XDX-kt-9FO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utB-wd-qeK">
+                                <rect key="frame" x="20" y="708" width="335" height="50"/>
+                                <color key="backgroundColor" red="0.69019607839999997" green="0.37254901959999998" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CSn-n9-qUl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Add Behavior">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBehaviorAction:" destination="XgB-71-pvr" eventType="touchUpInside" id="9ch-7z-x51"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IF3-4I-S1Y">
+                                <rect key="frame" x="137.66666666666666" y="132" width="100" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="989-tk-Ss7">
+                                        <rect key="frame" x="10" y="0.0" width="80" height="100"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="FG8-eS-rPk"/>
+                                    <constraint firstItem="989-tk-Ss7" firstAttribute="top" secondItem="IF3-4I-S1Y" secondAttribute="top" id="eNd-p2-uGr"/>
+                                    <constraint firstAttribute="width" constant="100" id="hFF-im-DCg"/>
+                                    <constraint firstAttribute="bottom" secondItem="989-tk-Ss7" secondAttribute="bottom" id="jN7-oP-Ziw"/>
+                                    <constraint firstAttribute="trailing" secondItem="989-tk-Ss7" secondAttribute="trailing" constant="10" id="q48-Bg-LT7"/>
+                                    <constraint firstItem="989-tk-Ss7" firstAttribute="leading" secondItem="IF3-4I-S1Y" secondAttribute="leading" constant="10" id="zew-ZI-fu9"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKw-uU-QT2">
+                                <rect key="frame" x="147.66666666666666" y="648" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6Jh-Eh-6Bp"/>
+                                    <constraint firstAttribute="width" constant="80" id="noi-VV-dN6"/>
+                                </constraints>
+                                <state key="normal" title="delete">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteBehavior:" destination="XgB-71-pvr" eventType="touchUpInside" id="Gyd-1U-YNR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Vur-RF-m7q" firstAttribute="trailing" secondItem="utB-wd-qeK" secondAttribute="trailing" constant="20" id="0Z3-Ur-Koj"/>
+                            <constraint firstItem="W0z-Dx-RXa" firstAttribute="top" secondItem="Vur-RF-m7q" secondAttribute="top" constant="30" id="8Jr-S1-qpI"/>
+                            <constraint firstItem="mUJ-Ho-jlf" firstAttribute="top" secondItem="IF3-4I-S1Y" secondAttribute="bottom" constant="20" id="DdU-KM-TeE"/>
+                            <constraint firstItem="Vur-RF-m7q" firstAttribute="bottom" secondItem="utB-wd-qeK" secondAttribute="bottom" constant="20" id="MS9-Dl-Fbz"/>
+                            <constraint firstItem="IF3-4I-S1Y" firstAttribute="top" secondItem="W0z-Dx-RXa" secondAttribute="bottom" constant="8" symbolic="YES" id="QCl-be-eqa"/>
+                            <constraint firstItem="dKw-uU-QT2" firstAttribute="centerX" secondItem="Q0B-FL-4QU" secondAttribute="centerX" id="TIA-4g-Bkx"/>
+                            <constraint firstItem="utB-wd-qeK" firstAttribute="top" secondItem="dKw-uU-QT2" secondAttribute="bottom" constant="30" id="dEI-Z4-cXJ"/>
+                            <constraint firstItem="Vur-RF-m7q" firstAttribute="trailing" secondItem="mUJ-Ho-jlf" secondAttribute="trailing" constant="20" id="edy-eX-gFO"/>
+                            <constraint firstItem="mUJ-Ho-jlf" firstAttribute="leading" secondItem="Vur-RF-m7q" secondAttribute="leading" constant="20" id="hc5-pL-17L"/>
+                            <constraint firstItem="utB-wd-qeK" firstAttribute="leading" secondItem="Vur-RF-m7q" secondAttribute="leading" constant="20" id="l5J-3J-4le"/>
+                            <constraint firstItem="IF3-4I-S1Y" firstAttribute="centerX" secondItem="Q0B-FL-4QU" secondAttribute="centerX" id="ut7-nr-mhJ"/>
+                            <constraint firstItem="Vur-RF-m7q" firstAttribute="trailing" secondItem="W0z-Dx-RXa" secondAttribute="trailing" constant="20" id="vSN-48-aTm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Vur-RF-m7q"/>
+                    </view>
+                    <connections>
+                        <outlet property="addBehaviorButton" destination="utB-wd-qeK" id="C98-z2-I53"/>
+                        <outlet property="behaviorLabel" destination="989-tk-Ss7" id="IG7-9c-sgh"/>
+                        <outlet property="bgView" destination="IF3-4I-S1Y" id="RJV-gI-uea"/>
+                        <outlet property="deleteBehaviorButton" destination="dKw-uU-QT2" id="hFt-Ob-Yq9"/>
+                        <outlet property="textField" destination="mUJ-Ho-jlf" id="Yxy-P2-oiu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tig-6e-rkJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543.20000000000005" y="1771.92118226601"/>
         </scene>
         <!--AnswerVC-->
         <scene sceneID="Bqr-Qp-BSU">

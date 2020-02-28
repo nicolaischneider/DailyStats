@@ -46,6 +46,9 @@ public class ColorPicker {
             case .terracotta: return UIColor(red: 227/255, green: 130/255, blue: 81/255, alpha: 1.0)
             case .defaultCol: return UIColor.black
             
+            // behaviors
+            // ... to find
+            
             default: return UIColor.black
         }
     }

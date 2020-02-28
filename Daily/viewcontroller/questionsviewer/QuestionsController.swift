@@ -114,6 +114,7 @@ class QuestionsController: QuestionsControllerDelegate {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let behaviorController = storyBoard.instantiateViewController(withIdentifier: "BehaviorViewController") as! BehaviorVC
         behaviorController.controller = BehaviorController(view: behaviorController)
+        behaviorController.controller.delegate = self
         
         // segue
         behaviorController.modalPresentationStyle = .fullScreen
@@ -157,7 +158,8 @@ class QuestionsController: QuestionsControllerDelegate {
     }
 }
 
-extension QuestionsController: QuestionsEditorDelegate {
+extension QuestionsController: QuestionsEditorDelegate, BehaviorDelegate {
+    // MARK: - QUESTIONS
     func addQuestion(question: Question) {
         dataManager.addQuestion(question: question)
         reloadData()
@@ -172,5 +174,22 @@ extension QuestionsController: QuestionsEditorDelegate {
         dataManager.updateStatsOfQuestion(questionID: questionID, answerIndex: answerIndex)
         reloadData()
         reloadLastAnswered()
+    }
+    
+    // MARK: - BEHAVIORS
+    func addBehavior(behavior: Behavior) {
+        dataManager.addBehavior(behavior: behavior)
+    }
+    
+    func updateBehavior(behavior: Behavior) {
+        dataManager.updateBehavior(behavior: behavior)
+    }
+    
+    func deleteBehavior(behaviorID: UUID) {
+        dataManager.deleteBehavior(behaviorID: behaviorID)
+    }
+    
+    func getListOfBehaviors() -> [Behavior] {
+        return dataManager.getBehaviors()
     }
 }

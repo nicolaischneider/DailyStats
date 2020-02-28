@@ -9,7 +9,8 @@
 import Foundation
 
 protocol QuestionsEditorDelegate {
+    // questions
     func addQuestion (question: Question)
     func deleteQuestion (questionID: UUID)
-    func updateStatsOfQuestion (questionID: UUID, answerIndex: Int)
+    func updateStatsOfQuestion (questionID: UUID, answerIndex: Int)    
 }

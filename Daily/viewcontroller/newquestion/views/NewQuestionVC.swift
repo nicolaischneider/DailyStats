@@ -178,7 +178,6 @@ extension NewQuestionVC: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         }
         
         cell.setupColor(color: color)
-        
         return cell
     }
     

@@ -24,6 +24,9 @@
 		B12052EE23E47F28005FD629 /* SingleQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052ED23E47F28005FD629 /* SingleQuestionController.swift */; };
 		B12052F023E47F47005FD629 /* SingleQuestionContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052EF23E47F47005FD629 /* SingleQuestionContract.swift */; };
 		B13FB8DD23DE3C98003F389E /* QuestionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13FB8DC23DE3C98003F389E /* QuestionsController.swift */; };
+		B149142C240866610090C23C /* AddBehaviorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149142B240866610090C23C /* AddBehaviorController.swift */; };
+		B149142E240866720090C23C /* AddBehaviorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149142D240866720090C23C /* AddBehaviorVC.swift */; };
+		B1491430240899C90090C23C /* BehaviorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149142F240899C90090C23C /* BehaviorDelegate.swift */; };
 		B149EA13240065A80058C45C /* QuestionsEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B149EA12240065A80058C45C /* QuestionsEditor.swift */; };
 		B14E4D1323EF790900FAAF9F /* AnswerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E4D1223EF790900FAAF9F /* AnswerVC.swift */; };
 		B14E4D1623EF792500FAAF9F /* AnswerContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14E4D1523EF792500FAAF9F /* AnswerContract.swift */; };
@@ -40,6 +43,8 @@
 		B1843F1923F2297100297240 /* YesNoAnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1843F1823F2297100297240 /* YesNoAnswerCell.swift */; };
 		B1843F1C23F232C800297240 /* Scale1to5AnswerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1843F1B23F232C800297240 /* Scale1to5AnswerCell.swift */; };
 		B193E2F62405B254002CB061 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B193E2F52405B254002CB061 /* Notifications.swift */; };
+		B1B403932408048C005B1806 /* BehaviorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B403922408048C005B1806 /* BehaviorCell.swift */; };
+		B1B4039524081F2C005B1806 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B4039424081F2C005B1806 /* Behavior.swift */; };
 		B1BBB43F23FF127500D456D3 /* StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB43E23FF127500D456D3 /* StatsCell.swift */; };
 		B1BBB44123FF19DE00D456D3 /* QuestionStatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */; };
 		B1BBB44423FF418200D456D3 /* ButtonPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44323FF418200D456D3 /* ButtonPress.swift */; };
@@ -92,6 +97,9 @@
 		B12052ED23E47F28005FD629 /* SingleQuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuestionController.swift; sourceTree = "<group>"; };
 		B12052EF23E47F47005FD629 /* SingleQuestionContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuestionContract.swift; sourceTree = "<group>"; };
 		B13FB8DC23DE3C98003F389E /* QuestionsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsController.swift; sourceTree = "<group>"; };
+		B149142B240866610090C23C /* AddBehaviorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBehaviorController.swift; sourceTree = "<group>"; };
+		B149142D240866720090C23C /* AddBehaviorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBehaviorVC.swift; sourceTree = "<group>"; };
+		B149142F240899C90090C23C /* BehaviorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorDelegate.swift; sourceTree = "<group>"; };
 		B149EA12240065A80058C45C /* QuestionsEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsEditor.swift; sourceTree = "<group>"; };
 		B14E4D1223EF790900FAAF9F /* AnswerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerVC.swift; sourceTree = "<group>"; };
 		B14E4D1523EF792500FAAF9F /* AnswerContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerContract.swift; sourceTree = "<group>"; };
@@ -109,6 +117,8 @@
 		B1843F1823F2297100297240 /* YesNoAnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesNoAnswerCell.swift; sourceTree = "<group>"; };
 		B1843F1B23F232C800297240 /* Scale1to5AnswerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scale1to5AnswerCell.swift; sourceTree = "<group>"; };
 		B193E2F52405B254002CB061 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		B1B403922408048C005B1806 /* BehaviorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorCell.swift; sourceTree = "<group>"; };
+		B1B4039424081F2C005B1806 /* Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
 		B1BBB43E23FF127500D456D3 /* StatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
 		B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStatType.swift; sourceTree = "<group>"; };
 		B1BBB44323FF418200D456D3 /* ButtonPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonPress.swift; sourceTree = "<group>"; };
@@ -286,6 +296,23 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		B1491429240866390090C23C /* addbehavior */ = {
+			isa = PBXGroup;
+			children = (
+				B149142A2408664A0090C23C /* views */,
+				B149142B240866610090C23C /* AddBehaviorController.swift */,
+			);
+			path = addbehavior;
+			sourceTree = "<group>";
+		};
+		B149142A2408664A0090C23C /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B149142D240866720090C23C /* AddBehaviorVC.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		B14E4D1423EF791100FAAF9F /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +327,7 @@
 			children = (
 				B160110123DE4F1B00837198 /* Question.swift */,
 				B1E8AA542404A4C000ABBC73 /* Stats.swift */,
+				B1B4039424081F2C005B1806 /* Behavior.swift */,
 				B160110323DE5B4100837198 /* QuestionType.swift */,
 				B160110523DE5F2800837198 /* Colors.swift */,
 				B10F28182405C58200FFCCA2 /* NotificationTime.swift */,
@@ -330,6 +358,7 @@
 				B166D1BF2407194F00677BB7 /* settings */,
 				B105B23123D4F1E10083C5A5 /* questionsviewer */,
 				B166D1C6240752CF00677BB7 /* behaviors */,
+				B1491429240866390090C23C /* addbehavior */,
 				B105B23223D4F2030083C5A5 /* answer */,
 				B12052E123DFA2F7005FD629 /* singlequestionviewer */,
 				B12052DF23DFA2E1005FD629 /* newquestion */,
@@ -350,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				B166D1C8240752F500677BB7 /* BehaviorVC.swift */,
+				B1B403912408046C005B1806 /* cells */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -360,6 +390,14 @@
 				B1843F1823F2297100297240 /* YesNoAnswerCell.swift */,
 				B1843F1B23F232C800297240 /* Scale1to5AnswerCell.swift */,
 				B1F138E623F4AF380085B10D /* ScaleButtonCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		B1B403912408046C005B1806 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B1B403922408048C005B1806 /* BehaviorCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -380,6 +418,7 @@
 				B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */,
 				B149EA12240065A80058C45C /* QuestionsEditor.swift */,
 				B1F138E923F4B8570085B10D /* AnswerProtocol.swift */,
+				B149142F240899C90090C23C /* BehaviorDelegate.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -515,10 +554,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1491430240899C90090C23C /* BehaviorDelegate.swift in Sources */,
+				B1B4039524081F2C005B1806 /* Behavior.swift in Sources */,
 				B1E8AA5324047BEC00ABBC73 /* StatsComputer.swift in Sources */,
 				B1E8AA552404A4C000ABBC73 /* Stats.swift in Sources */,
 				B14E4D1623EF792500FAAF9F /* AnswerContract.swift in Sources */,
 				B12052EA23DFA3D7005FD629 /* NewQuestionContract.swift in Sources */,
+				B149142E240866720090C23C /* AddBehaviorVC.swift in Sources */,
 				B1BBB44423FF418200D456D3 /* ButtonPress.swift in Sources */,
 				B12052E623DFA36E005FD629 /* NewQuestionVC.swift in Sources */,
 				B1F138E723F4AF380085B10D /* ScaleButtonCell.swift in Sources */,
@@ -542,12 +584,14 @@
 				B1843F1C23F232C800297240 /* Scale1to5AnswerCell.swift in Sources */,
 				B12052F023E47F47005FD629 /* SingleQuestionContract.swift in Sources */,
 				B16010FF23DE497D00837198 /* QuestionsContract.swift in Sources */,
+				B1B403932408048C005B1806 /* BehaviorCell.swift in Sources */,
 				B105B20423D4E92E0083C5A5 /* AppDelegate.swift in Sources */,
 				B183A7462405941B007148E2 /* EmptyCell.swift in Sources */,
 				B105B23523D4F2320083C5A5 /* QuestionsVC.swift in Sources */,
 				B13FB8DD23DE3C98003F389E /* QuestionsController.swift in Sources */,
 				B1BBB43F23FF127500D456D3 /* StatsCell.swift in Sources */,
 				B166D1CB2407530400677BB7 /* BehaviorController.swift in Sources */,
+				B149142C240866610090C23C /* AddBehaviorController.swift in Sources */,
 				B1BBB44823FF439D00D456D3 /* DataManager.swift in Sources */,
 				B10F28192405C58200FFCCA2 /* NotificationTime.swift in Sources */,
 				B160110423DE5B4100837198 /* QuestionType.swift in Sources */,
@@ -734,6 +778,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.schneider-productions.Daily";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -754,6 +799,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.schneider-productions.Daily";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
