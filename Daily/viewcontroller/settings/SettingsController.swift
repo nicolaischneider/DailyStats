@@ -7,12 +7,19 @@
 //
 
 import Foundation
+import UIKit
+import UserNotifications
 
 class SettingsController {
     var view: SettingsVC!
     
     init(view: SettingsVC) {
         self.view = view
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func willEnterForeground() {
+        isPushNotificationsActivated()
     }
     
     func updatedNotificationTimeTo (_ time: Date) {
@@ -24,8 +31,16 @@ class SettingsController {
         view.reloadTimeString()
     }
     
-    func isPushNotificationsActivated () -> Bool {
-        return true
+    func isPushNotificationsActivated () {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
+            [weak self] granted, error in
+            print("Permission granted: \(granted)")
+            guard granted else {
+                self!.view.setupNotificationView(isActivated: false)
+                return
+            }
+            self!.view.setupNotificationView(isActivated: granted)
+        }
     }
     
     func openPrivacyPolicies () {

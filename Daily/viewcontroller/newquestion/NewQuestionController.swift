@@ -49,7 +49,7 @@ class NewQuestionController: NewQuestionControllerDelegate {
             case 2: return .desertSand
             case 3: return .coral
             case 4: return .terracotta
-            default: return .red
+            default: return .defaultCol
         }
     }
     

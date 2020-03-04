@@ -52,17 +52,22 @@ class SettingsVC: UIViewController {
         controller.updatedNotificationTimeTo(datePicker.date)
     }
     
+    func setupNotificationView (isActivated: Bool) {
+        DispatchQueue.main.async {
+            self.notificationLabel.isHidden = isActivated
+            self.timeOfNots.isHidden = !isActivated
+            self.pushNotTitleLabel.isHidden = !isActivated
+            self.datePicker.isHidden = !isActivated
+        }
+    }
+    
     private func setupObjects () {
         // corner radius
         bgView.layer.cornerRadius = 20
         subView.layer.cornerRadius = 10
         
         // set alpha values
-        let pushNotificationsActivated = controller.isPushNotificationsActivated()
-        notificationLabel.isHidden = pushNotificationsActivated
-        timeOfNots.isHidden = !pushNotificationsActivated
-        pushNotTitleLabel.isHidden = !pushNotificationsActivated
-        datePicker.isHidden = !pushNotificationsActivated
+        controller.isPushNotificationsActivated()
         
         // setup date picker
         datePicker.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
