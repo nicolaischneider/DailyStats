@@ -78,7 +78,7 @@
                                             <constraint firstAttribute="height" constant="50" id="WCr-0R-Vwl"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="person.fill" catalog="system"/>
+                                        <state key="normal" image="behavior"/>
                                         <connections>
                                             <action selector="behaviorAction:" destination="Ct6-QA-bZ0" eventType="touchUpInside" id="Ycf-16-89F"/>
                                         </connections>
@@ -811,8 +811,8 @@
     </scenes>
     <resources>
         <image name="addQuestion" width="40" height="40"/>
+        <image name="behavior" width="100" height="100"/>
         <image name="menu" width="100" height="100"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="quit" width="50" height="50"/>
         <image name="startAnswering" width="40" height="40"/>
     </resources>

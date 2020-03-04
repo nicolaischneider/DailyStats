@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icon_nobg.png",
+      "filename" : "behavior_100.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "behavior_200.png",
       "scale" : "2x"
     },
     {

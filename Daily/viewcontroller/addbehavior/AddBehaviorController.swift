@@ -56,11 +56,11 @@ class AddBehaviorController {
     
     func getColorForIndex(index: Int) -> Colors {
         switch index {
-            case 0: return .strongYellow
+            case 0: return .nineteesBlue
             case 1: return .aquamarine
             case 2: return .beige
-            case 3: return .icecreamPink
-            case 4: return .leafGreen
+            case 3: return .goldenYellow
+            case 4: return .rustyOrange
             default: return .defaultCol
         }
     }

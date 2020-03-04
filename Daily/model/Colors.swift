@@ -18,11 +18,11 @@ public enum Colors: Int, Codable {
     case terracotta
     
     // behaviors
-    case strongYellow
+    case nineteesBlue
     case aquamarine
     case beige
-    case icecreamPink
-    case leafGreen
+    case goldenYellow
+    case rustyOrange
     
     // buttons
     case moss // main
@@ -48,11 +48,11 @@ public class ColorPicker {
             case .lightGray: return UIColor(red: 235/255, green: 237/255, blue: 235/255, alpha: 1.0)
             
             // selected behaviors
-            case .strongYellow: return UIColor(red: 252/255, green: 202/255, blue: 27/255, alpha: 1.0)
-            case .aquamarine: return UIColor(red: 152/255, green: 239/255, blue: 237/255, alpha: 1.0)
-            case .beige: return UIColor(red: 241/255, green: 231/255, blue: 176/255, alpha: 1.0)
-            case .icecreamPink: return UIColor(red: 251/255, green: 209/255, blue: 211/255, alpha: 1.0)
-            case .leafGreen: return UIColor(red: 146/255, green: 180/255, blue: 115/255, alpha: 1.0)
+            case .aquamarine: return UIColor(red: 140/255, green: 200/255, blue: 197/255, alpha: 1.0)
+            case .nineteesBlue: return UIColor(red: 198/255, green: 219/255, blue: 209/255, alpha: 1.0)
+            case .beige: return UIColor(red: 198/255, green: 168/255, blue: 127/255, alpha: 1.0)
+            case .goldenYellow: return UIColor(red: 206/255, green: 164/255, blue: 78/255, alpha: 1.0)
+            case .rustyOrange: return UIColor(red: 214/255, green: 142/255, blue: 79/255, alpha: 1.0)
             
             case .defaultCol: return UIColor.black
             

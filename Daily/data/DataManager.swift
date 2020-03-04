@@ -32,9 +32,9 @@ class DataManager: NSObject {
             print("questions extracted")
         } else {
             // THREE TEST QUESTIONS
-            let quest1 = Question(question: "How happy are you?", type: .scale1to5, color: .lambsGreen)
-            let quest2 = Question(question: "Did you feel any dizziness when waking up?", type:.yesNo, color: .costalBlue)
-            let quest3 = Question(question: "Are you excited for today?", type: .yesNo, color: .desertSand)
+            let quest1 = Question(question: "How happy were you today?", type: .scale1to5, color: .lambsGreen)
+            let quest2 = Question(question: "How productive did you feel today?", type:.scale1to5, color: .costalBlue)
+            let quest3 = Question(question: "Were you excited for today when you woke up this morning?", type: .yesNo, color: .desertSand)
             listOfQuestions.append(quest1)
             listOfQuestions.append(quest2)
             listOfQuestions.append(quest3)
@@ -97,14 +97,14 @@ class DataManager: NSObject {
             listOfBehaviors = behaviorArray
             print("behaviors extracted")
         } else {
-            listOfBehaviors.append(Behavior(behavior: "weed", color: .strongYellow))
+            listOfBehaviors.append(Behavior(behavior: "weed", color: .nineteesBlue))
             listOfBehaviors.append(Behavior(behavior: "exercise", color: .aquamarine))
-            listOfBehaviors.append(Behavior(behavior: "slept well", color: .leafGreen))
-            listOfBehaviors.append(Behavior(behavior: "coffee", color: .icecreamPink))
+            listOfBehaviors.append(Behavior(behavior: "slept well", color: .rustyOrange))
+            listOfBehaviors.append(Behavior(behavior: "alcohol", color: .goldenYellow))
             listOfBehaviors.append(Behavior(behavior: "went outside", color: .aquamarine))
             listOfBehaviors.append(Behavior(behavior: "meditation", color: .beige))
-            listOfBehaviors.append(Behavior(behavior: "relaxation", color: .strongYellow))
-            listOfBehaviors.append(Behavior(behavior: "stressful day", color: .icecreamPink))
+            listOfBehaviors.append(Behavior(behavior: "relaxation", color: .nineteesBlue))
+            listOfBehaviors.append(Behavior(behavior: "stressful day", color: .goldenYellow))
             Behavior.updateBehaviors(listOfBehaviors: listOfBehaviors)
         }
     }
