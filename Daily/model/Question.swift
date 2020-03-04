@@ -17,7 +17,8 @@ struct Question: Codable {
     var timesAnswered: Int!
     var dateOfCreation: Date!
     var lastAnswered: Date?
-    var stats: [Stats]!
+    var answers: [Answer]!
+    var stats: Stats!
     
     init(question: String, type: QuestionType, color: Colors) {
         self.tag = UUID()
@@ -26,7 +27,21 @@ struct Question: Codable {
         self.color = color
         self.timesAnswered = 0
         self.dateOfCreation = Date(timeIntervalSinceNow: 0)
-        self.stats = [Stats]()
+        self.answers = [Answer]()
+        
+        var possibleAns: Int!
+        switch type {
+            case .scale1to5: possibleAns = 5
+            case .yesNo: possibleAns = 2
+        }
+        self.stats = Stats(possibleAnswers: possibleAns)
+    }
+    
+    mutating func updateStats (ans: Int, behaviors: [Behavior]) {
+        self.timesAnswered += 1
+        self.answers.append(Answer(ans: ans, date: Date(timeIntervalSinceNow: .zero), behaviors: behaviors))
+        self.lastAnswered = Date(timeIntervalSinceNow: .zero)
+        self.stats.updateStats(answer: ans, behaviors: behaviors)
     }
     
     public static func updateQuestions (listOfQuestions: [Question]) {

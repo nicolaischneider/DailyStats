@@ -139,6 +139,12 @@ class AddBehaviorVC: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tapGesture)
         
         // insets
+        deleteBehaviorButton.layer.cornerRadius = 15
+        deleteBehaviorButton.backgroundColor = ColorPicker.getButtonColors(.seashell)
+        deleteBehaviorButton.layer.shadowColor = ColorPicker.getButtonColors(.seashell).cgColor
+        deleteBehaviorButton.layer.shadowRadius = 10
+        deleteBehaviorButton.layer.shadowOpacity = 0.6
+        deleteBehaviorButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         deleteBehaviorButton.isHidden = true
         if controller.isEditMode() {
             let behaviorData = controller.getBehaviorData()

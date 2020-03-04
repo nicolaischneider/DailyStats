@@ -30,8 +30,8 @@ class NewQuestionController: NewQuestionControllerDelegate {
         self.questionStr = question
     }
     
-    func updateTypeOfQuestion(type: QuestionTypes) {
-        self.questionType = QuestionType(type: type)
+    func updateTypeOfQuestion(type: QuestionType) {
+        self.questionType = type
     }
     
     func updateColorOfQuestion(color: Colors) {
@@ -70,11 +70,8 @@ class NewQuestionController: NewQuestionControllerDelegate {
         }
         
         let newQuestion = Question(question: questionStr!, type: questionType!, color: questionColor!)
-        // ADD DELEGATE TO TALK TO MAIN CONTROLLER
-        // MAIN CONTROLLER SHOULD THEN TALK TO DATA MANAGER
         delegate.addQuestion(question: newQuestion)
         
-        // add question
         dismissVC()
     }
     

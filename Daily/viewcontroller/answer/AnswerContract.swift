@@ -21,4 +21,5 @@ protocol AnswerControllerDelegate {
     func dismissVC ()
     func getQuestionAtIndex (index: Int) -> Question
     func getNumOfQuestions () -> Int
+    func addBhevaviors (selectedBehaviors: [Bool])
 }

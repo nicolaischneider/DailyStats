@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StatsCell: UIView {
+class GeneralInfoStackViewCell: UIView {
     
     let titleLabel: UILabel = {
         let label = UILabel()

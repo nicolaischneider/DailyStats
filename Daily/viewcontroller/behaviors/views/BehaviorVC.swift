@@ -15,6 +15,7 @@ class BehaviorVC: UIViewController {
     // objects
     @IBOutlet weak var titleLabell: UILabel!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var noBehaviorsLabel: UILabel!
     
     // collection view
     let cellName = "cellName"
@@ -48,11 +49,13 @@ class BehaviorVC: UIViewController {
     
     func reloadData () {
         collectionView.reloadData()
+        noBehaviorsLabel.isHidden = controller.areBehaviorsAvailable()
     }
     
     private func setupObjects () {
-        // setup button
+        // setup buttons
         plusButton.layer.cornerRadius = 20
+        noBehaviorsLabel.isHidden = controller.areBehaviorsAvailable()
         
         // setup collectionview
         view.addSubview(collectionView)
@@ -77,7 +80,7 @@ extension BehaviorVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName, for: indexPath) as! BehaviorCell
-        let behavior = controller.getBehaviorAtIndex(index: indexPath.row)
+        let behavior = controller.getBehaviorAtIndex(index: indexPath.item)
         cell.behaviorLabel.text = behavior.behavior
         cell.setupColor(color: behavior.color)
         return cell

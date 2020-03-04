@@ -19,7 +19,7 @@ protocol NewQuestionControllerDelegate {
     func dismissVC ()
     func addQuestion ()
     func updateQuestion (question: String)
-    func updateTypeOfQuestion (type: QuestionTypes)
+    func updateTypeOfQuestion (type: QuestionType)
     func updateColorOfQuestion (color: Colors)
     func getColorForIndex (index: Int) -> Colors
     func getSelectedColor () -> Colors?

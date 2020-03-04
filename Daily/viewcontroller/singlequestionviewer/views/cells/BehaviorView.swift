@@ -1,14 +1,14 @@
 //
-//  BehaviorCell.swift
+//  BehaviorView.swift
 //  Daily
 //
-//  Created by Nicolai Schneider on 27.02.20.
+//  Created by Nicolai Schneider on 02.03.20.
 //  Copyright © 2020 kncproductions. All rights reserved.
 //
 
 import UIKit
 
-class BehaviorCell: CollectionViewCellPress {
+class BehaviorView: UIView {
     
     let bgView: UIView = {
         let view = UIView()
@@ -26,42 +26,46 @@ class BehaviorCell: CollectionViewCellPress {
         let label = UILabel()
         label.backgroundColor = .clear
         label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.font = UIFont.boldSystemFont(ofSize: 7)
         label.textAlignment = .center
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: .zero)
         backgroundColor = .clear
+        self.translatesAutoresizingMaskIntoConstraints = false
         setupObjects()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupColor (color: Colors) {
-        let convertedColor = ColorPicker.getColor(color)
+    func setupContent (color: UIColor, text: String) {
+        let convertedColor = color
         bgView.backgroundColor = convertedColor
         bgView.layer.shadowColor = convertedColor.cgColor
+        behaviorLabel.text = text
     }
-
+    
     private func setupObjects () {
-        // add bg view
+        // bg view
         addSubview(bgView)
-        bgView.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        bgView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10).isActive = true
-        bgView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10).isActive = true
-        bgView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        bgView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
+        bgView.leftAnchor.constraint(equalTo: leftAnchor, constant: 5).isActive = true
+        bgView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        bgView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        bgView.rightAnchor.constraint(equalTo: rightAnchor, constant: -5).isActive = true
         
-        // add behavior title
+        // label
         bgView.addSubview(behaviorLabel)
         behaviorLabel.topAnchor.constraint(equalTo: bgView.topAnchor).isActive = true
-        behaviorLabel.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 10).isActive = true
-        behaviorLabel.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: -10).isActive = true
-        behaviorLabel.bottomAnchor.constraint(equalTo: bgView.bottomAnchor, constant: 0).isActive = true
+        behaviorLabel.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 3).isActive = true
+        behaviorLabel.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: -3).isActive = true
+        behaviorLabel.bottomAnchor.constraint(equalTo: bgView.bottomAnchor).isActive = true
     }
+
 }

@@ -11,16 +11,29 @@ import UIKit
 
 class SingleQuestionController: SingleQuestionControllerDelegate {
     var view: UIViewController!
-    var delegate: QuestionsEditorDelegate!
+    var statsComp: StatsComputer!
+    var questionsDelegate: QuestionsEditorDelegate!
+    
     var question: Question!
     
     init(view: UIViewController, question: Question) {
         self.view = view
         self.question = question
+        self.statsComp = StatsComputer()
+    }
+    
+    func setDelegates (qDelegate: QuestionsEditorDelegate, bDelegate: BehaviorDelegate) {
+        self.questionsDelegate = qDelegate
+        self.statsComp.delegate = bDelegate
     }
     
     func dimissVC() {
         view.dismiss(animated: true, completion: nil)
+    }
+    
+    func shouldShowStats () -> Bool {
+        if question.timesAnswered > 0 { return true }
+        else { return false }
     }
     
     func deleteQuestion() {
@@ -35,7 +48,7 @@ class SingleQuestionController: SingleQuestionControllerDelegate {
         
         // quit the game
         let yesAction = UIAlertAction(title: "Delete", style: .destructive) { action in
-            self.delegate.deleteQuestion(questionID: self.question.tag)
+            self.questionsDelegate.deleteQuestion(questionID: self.question.tag)
             self.dimissVC()
         }
         alert.addAction(yesAction)
@@ -50,19 +63,67 @@ class SingleQuestionController: SingleQuestionControllerDelegate {
         return question.color
     }
     
+    func getQuestionStats () -> Stats {
+        return question.stats
+    }
+    
+    func getPercentagesString () -> [String] {
+        if let scores = statsComp.getAvgStatsForQuestion(question: question) {
+            var scoresString = [String]()
+            for val in scores {
+                let valString = String(format: "%.1f", val) + "%"
+                scoresString.append(valString)
+            }
+            return scoresString
+        } else {
+            return ["-%"]
+        }
+    }
+    
+    func getPercentagesFloat () -> [Float] {
+        if let scores = statsComp.getAvgStatsForQuestion(question: question) {
+            var perscScores = [Float]()
+            for val in scores {
+                perscScores.append(val/100)
+            }
+            return perscScores
+        } else {
+            return [0]
+        }
+    }
+    
+    func getPossibleAnswers () -> [String] {
+        switch question.type {
+            case .yesNo: return ["Yes","No"]
+            case .scale1to5: return ["1","2","3","4","5"]
+        case .none:
+            print("error: non existing type")
+            return [""]
+        }
+    }
+    
+    func getBehaviors () -> [[Behavior?]] {
+        if let behaviors = statsComp.getMostUsedBehaviorsForQuestion(question: question) {
+            return behaviors
+        } else {
+            var emptyBehavior = [[Behavior?]]()
+            emptyBehavior.append([nil])
+            return emptyBehavior
+        }
+    }
+    
     func getStat (type: QuestionStatType) -> (String, String) {
         switch type {
             case .type: return ("Type", getQuestionType())
             case .dateOfCreation: return ("Created", getDateOfCreation())
             case .timesAnswered: return ("Answered", getTimesAnswered())
-            case .stats: return ("Stats", getStats())
         }
     }
     
     private func getQuestionType() -> String {
         let type = question.type
-        let typeString = type?.getTypeText()
-        return typeString!
+        let typeString = TypeMgr.getTextOfType(type!)
+        return typeString
     }
     
     private func getTimesAnswered() -> String {
@@ -75,21 +136,5 @@ class SingleQuestionController: SingleQuestionControllerDelegate {
         dateFormatter.dateFormat = "dd/MM/yyyy"
         let dateString = dateFormatter.string(from: date!)
         return dateString
-    }
-    
-    private func getStats () -> String {
-        switch question.type.getType() {
-        case .yesNo:
-            if let scores = StatsComputer.avgStatsForYesNoQuestion(question: question) {
-                return String(scores.0) + "% Yes; " + String(scores.1) + "% No"
-            } else {
-                return "No Stats available yet."
-            }
-        case .scale1to5:
-            if let score = StatsComputer.avgStatsForScale1to5Question(question: question) {
-                return "Average Score: " + String(score)
-            }
-            return "No Stats available yet."
-        }
     }
 }

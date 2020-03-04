@@ -10,53 +10,95 @@ import Foundation
 
 class StatsComputer: NSObject {
     
+    var delegate: BehaviorDelegate!
+    
+    let maxNumOfBehaviors = 2 // max number of behaviors / answer
+    let minNumOfNeededAppearances = 10 // needed appearance of behavior to be added to answer
+    
     override init() {
         super.init()
     }
     
-    // MARK: - yes/no questions
-    // all time
-    static func avgStatsForYesNoQuestion (question: Question) -> (Float,Float)? {
-        // break in case the question has never been answered before
+    private func getBehaviorFromID (id: UUID) -> Behavior? {
+        let list = delegate.getListOfBehaviors()
+        for behavior in list {
+            if id == behavior.id {
+                return behavior
+            }
+        }
+        // error behavior not found
+        return nil
+    }
+    
+    func getAvgStatsForQuestion (question: Question) -> [Float]? {
         if question.timesAnswered == 0 { return nil }
         
-        var yesScore: Float = 0
-        var noScore: Float = 0
+        var listOfPercentages = [Float]()
         
-        for  i in 0..<question.stats.count {
-            let stat = question.stats[i]
-            // 0: yes, 1: no
-            if stat.answer == 0 { yesScore += 1 }
-            else { noScore += 1 }
+        // go thorugh all possible answers (e.g. yes/no has two) and compute their percentage
+        for answer in question.stats.answers {
+            let answerPercentage = (Float(answer) / Float(question.timesAnswered)) * 100
+            listOfPercentages.append(answerPercentage)
         }
-        yesScore = (yesScore / Float(question.timesAnswered)) * 100
-        noScore = (noScore / Float(question.timesAnswered)) * 100
-        
-        return (yesScore, noScore)
+        return listOfPercentages
     }
     
-    // last week
-    /*static func statsLastWeekYesNoQuestion (question: Question) -> (Float,Float) {
-        
-    }
-    
-    // last month
-    static func statsLastMonthYesNoQuestion (question: Question) -> (Float,Float) {
-        
-    }*/
-    
-    // MARK: - scale 1-5 questions
-    // all time
-    static func avgStatsForScale1to5Question (question: Question) -> Float? {
+    func getAvgScoreForQuestion (question: Question) -> Float? {
         if question.timesAnswered == 0 { return nil }
         
-        var score: Float = 0
-        for i in 0..<question.stats.count {
-            let stat = question.stats[i]
-            score += Float(stat.answer+1)
+        var totalScore = 0
+        for i in 0..<question.stats.answers.count {
+            totalScore += (i+1) * question.stats.answers[i]
         }
-        score = score / Float(question.timesAnswered)
-        return score
+        
+        let avgScore: Float = Float(totalScore) / Float(question.timesAnswered)
+        return avgScore
     }
     
+    func getMostUsedBehaviorsForQuestion (question: Question) -> [[Behavior?]]? {
+        if question.timesAnswered == 0 { return nil }
+        
+        var listOfbehaviors = [[Behavior?]]()
+            
+        for answer in question.stats.selectedBehaviors {
+            var answerList = [(UUID,Int)]() // behavior id and appearances
+            for behavior in answer {
+                
+                // check if behavior still exists
+                guard let _ = getBehaviorFromID(id: behavior.key) else {
+                    continue
+                }
+                
+                // add element to list and sort list
+                answerList.append((behavior.key, behavior.value))
+                answerList = answerList.sorted(by: {$0.1 < $1.1})
+                
+                // in case behavior number exeeds max number
+                if answerList.count > maxNumOfBehaviors {
+                    answerList.remove(at: 0)
+                }
+            }
+            
+            // add actual behaviors to list IFF they meet the minimum appearance requirement
+            var listOfbehaviorsForAnswer = [Behavior?]()
+            for _behavior in answerList {
+                // check for min number of appearances
+                if _behavior.1 < minNumOfNeededAppearances {
+                    listOfbehaviorsForAnswer.append(nil)
+                    continue
+                }
+                
+                if let __behavior = getBehaviorFromID(id: _behavior.0) {
+                    listOfbehaviorsForAnswer.append(__behavior)
+                }
+            }
+            
+            // add to main list
+            listOfbehaviors.append(listOfbehaviorsForAnswer)
+        }
+        
+        // return nil for empty list
+        if listOfbehaviors.count == 0 { return nil }
+        else { return listOfbehaviors }
+    }
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B105352824098FF700F7A833 /* ListOfBehaviorsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105352724098FF700F7A833 /* ListOfBehaviorsCell.swift */; };
+		B105352A240B2EC200F7A833 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1053529240B2EC200F7A833 /* Answer.swift */; };
+		B105352C240B2F1500F7A833 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105352B240B2F1500F7A833 /* Stats.swift */; };
 		B105B20423D4E92E0083C5A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105B20323D4E92E0083C5A5 /* AppDelegate.swift */; };
 		B105B20923D4E92E0083C5A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B105B20723D4E92E0083C5A5 /* Main.storyboard */; };
 		B105B20B23D4E9320083C5A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B105B20A23D4E9320083C5A5 /* Assets.xcassets */; };
@@ -15,6 +18,10 @@
 		B105B22423D4E9320083C5A5 /* DailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105B22323D4E9320083C5A5 /* DailyUITests.swift */; };
 		B105B23523D4F2320083C5A5 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105B23423D4F2320083C5A5 /* QuestionsVC.swift */; };
 		B105B23823D510C90083C5A5 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105B23723D510C90083C5A5 /* QuestionCell.swift */; };
+		B10E504B240C5E42001552F5 /* GeneralInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E504A240C5E42001552F5 /* GeneralInfoCell.swift */; };
+		B10E504D240C65E1001552F5 /* StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E504C240C65E1001552F5 /* StatsCell.swift */; };
+		B10E504F240C66AC001552F5 /* StatsStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E504E240C66AC001552F5 /* StatsStackViewCell.swift */; };
+		B10E5051240C8D4B001552F5 /* BehaviorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E5050240C8D4B001552F5 /* BehaviorView.swift */; };
 		B10F28192405C58200FFCCA2 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10F28182405C58200FFCCA2 /* NotificationTime.swift */; };
 		B12052E423DFA342005FD629 /* SingleQuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052E323DFA342005FD629 /* SingleQuestionVC.swift */; };
 		B12052E623DFA36E005FD629 /* NewQuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052E523DFA36E005FD629 /* NewQuestionVC.swift */; };
@@ -45,13 +52,12 @@
 		B193E2F62405B254002CB061 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = B193E2F52405B254002CB061 /* Notifications.swift */; };
 		B1B403932408048C005B1806 /* BehaviorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B403922408048C005B1806 /* BehaviorCell.swift */; };
 		B1B4039524081F2C005B1806 /* Behavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B4039424081F2C005B1806 /* Behavior.swift */; };
-		B1BBB43F23FF127500D456D3 /* StatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB43E23FF127500D456D3 /* StatsCell.swift */; };
+		B1BBB43F23FF127500D456D3 /* GeneralInfoStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB43E23FF127500D456D3 /* GeneralInfoStackViewCell.swift */; };
 		B1BBB44123FF19DE00D456D3 /* QuestionStatType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */; };
 		B1BBB44423FF418200D456D3 /* ButtonPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44323FF418200D456D3 /* ButtonPress.swift */; };
 		B1BBB44623FF42A300D456D3 /* CellPress.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44523FF42A300D456D3 /* CellPress.swift */; };
 		B1BBB44823FF439D00D456D3 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BBB44723FF439D00D456D3 /* DataManager.swift */; };
 		B1E8AA5324047BEC00ABBC73 /* StatsComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8AA5224047BEC00ABBC73 /* StatsComputer.swift */; };
-		B1E8AA552404A4C000ABBC73 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1E8AA542404A4C000ABBC73 /* Stats.swift */; };
 		B1F138E723F4AF380085B10D /* ScaleButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F138E623F4AF380085B10D /* ScaleButtonCell.swift */; };
 		B1F138EA23F4B8570085B10D /* AnswerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F138E923F4B8570085B10D /* AnswerProtocol.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +80,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B105352724098FF700F7A833 /* ListOfBehaviorsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfBehaviorsCell.swift; sourceTree = "<group>"; };
+		B1053529240B2EC200F7A833 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		B105352B240B2F1500F7A833 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		B105B20023D4E92E0083C5A5 /* Daily.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daily.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B105B20323D4E92E0083C5A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B105B20823D4E92E0083C5A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -88,6 +97,10 @@
 		B105B22523D4E9320083C5A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B105B23423D4F2320083C5A5 /* QuestionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsVC.swift; sourceTree = "<group>"; };
 		B105B23723D510C90083C5A5 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
+		B10E504A240C5E42001552F5 /* GeneralInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoCell.swift; sourceTree = "<group>"; };
+		B10E504C240C65E1001552F5 /* StatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
+		B10E504E240C66AC001552F5 /* StatsStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackViewCell.swift; sourceTree = "<group>"; };
+		B10E5050240C8D4B001552F5 /* BehaviorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorView.swift; sourceTree = "<group>"; };
 		B10F28182405C58200FFCCA2 /* NotificationTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTime.swift; sourceTree = "<group>"; };
 		B12052E323DFA342005FD629 /* SingleQuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuestionVC.swift; sourceTree = "<group>"; };
 		B12052E523DFA36E005FD629 /* NewQuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionVC.swift; sourceTree = "<group>"; };
@@ -119,13 +132,12 @@
 		B193E2F52405B254002CB061 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		B1B403922408048C005B1806 /* BehaviorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorCell.swift; sourceTree = "<group>"; };
 		B1B4039424081F2C005B1806 /* Behavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Behavior.swift; sourceTree = "<group>"; };
-		B1BBB43E23FF127500D456D3 /* StatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsCell.swift; sourceTree = "<group>"; };
+		B1BBB43E23FF127500D456D3 /* GeneralInfoStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralInfoStackViewCell.swift; sourceTree = "<group>"; };
 		B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionStatType.swift; sourceTree = "<group>"; };
 		B1BBB44323FF418200D456D3 /* ButtonPress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonPress.swift; sourceTree = "<group>"; };
 		B1BBB44523FF42A300D456D3 /* CellPress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPress.swift; sourceTree = "<group>"; };
 		B1BBB44723FF439D00D456D3 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B1E8AA5224047BEC00ABBC73 /* StatsComputer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsComputer.swift; sourceTree = "<group>"; };
-		B1E8AA542404A4C000ABBC73 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		B1F138E623F4AF380085B10D /* ScaleButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonCell.swift; sourceTree = "<group>"; };
 		B1F138E923F4B8570085B10D /* AnswerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +252,18 @@
 			path = data;
 			sourceTree = "<group>";
 		};
+		B10E5049240C5C60001552F5 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B10E504A240C5E42001552F5 /* GeneralInfoCell.swift */,
+				B1BBB43E23FF127500D456D3 /* GeneralInfoStackViewCell.swift */,
+				B10E504C240C65E1001552F5 /* StatsCell.swift */,
+				B10E504E240C66AC001552F5 /* StatsStackViewCell.swift */,
+				B10E5050240C8D4B001552F5 /* BehaviorView.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		B10F28172405C09300FFCCA2 /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,7 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				B12052E323DFA342005FD629 /* SingleQuestionVC.swift */,
-				B1BBB43E23FF127500D456D3 /* StatsCell.swift */,
+				B10E5049240C5C60001552F5 /* cells */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -326,8 +350,9 @@
 			isa = PBXGroup;
 			children = (
 				B160110123DE4F1B00837198 /* Question.swift */,
-				B1E8AA542404A4C000ABBC73 /* Stats.swift */,
+				B1053529240B2EC200F7A833 /* Answer.swift */,
 				B1B4039424081F2C005B1806 /* Behavior.swift */,
+				B105352B240B2F1500F7A833 /* Stats.swift */,
 				B160110323DE5B4100837198 /* QuestionType.swift */,
 				B160110523DE5F2800837198 /* Colors.swift */,
 				B10F28182405C58200FFCCA2 /* NotificationTime.swift */,
@@ -390,6 +415,7 @@
 				B1843F1823F2297100297240 /* YesNoAnswerCell.swift */,
 				B1843F1B23F232C800297240 /* Scale1to5AnswerCell.swift */,
 				B1F138E623F4AF380085B10D /* ScaleButtonCell.swift */,
+				B105352724098FF700F7A833 /* ListOfBehaviorsCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -555,9 +581,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1491430240899C90090C23C /* BehaviorDelegate.swift in Sources */,
+				B105352C240B2F1500F7A833 /* Stats.swift in Sources */,
 				B1B4039524081F2C005B1806 /* Behavior.swift in Sources */,
 				B1E8AA5324047BEC00ABBC73 /* StatsComputer.swift in Sources */,
-				B1E8AA552404A4C000ABBC73 /* Stats.swift in Sources */,
 				B14E4D1623EF792500FAAF9F /* AnswerContract.swift in Sources */,
 				B12052EA23DFA3D7005FD629 /* NewQuestionContract.swift in Sources */,
 				B149142E240866720090C23C /* AddBehaviorVC.swift in Sources */,
@@ -574,12 +600,18 @@
 				B12052E823DFA3B6005FD629 /* NewQuestionController.swift in Sources */,
 				B12052E423DFA342005FD629 /* SingleQuestionVC.swift in Sources */,
 				B1843F1923F2297100297240 /* YesNoAnswerCell.swift in Sources */,
+				B105352824098FF700F7A833 /* ListOfBehaviorsCell.swift in Sources */,
+				B10E504D240C65E1001552F5 /* StatsCell.swift in Sources */,
+				B10E504F240C66AC001552F5 /* StatsStackViewCell.swift in Sources */,
 				B160110223DE4F1B00837198 /* Question.swift in Sources */,
+				B10E5051240C8D4B001552F5 /* BehaviorView.swift in Sources */,
 				B12052EC23E0FE57005FD629 /* ColorCell.swift in Sources */,
 				B1BBB44123FF19DE00D456D3 /* QuestionStatType.swift in Sources */,
 				B166D1C9240752F500677BB7 /* BehaviorVC.swift in Sources */,
+				B10E504B240C5E42001552F5 /* GeneralInfoCell.swift in Sources */,
 				B166D1C22407336000677BB7 /* SettingsController.swift in Sources */,
 				B1BBB44623FF42A300D456D3 /* CellPress.swift in Sources */,
+				B105352A240B2EC200F7A833 /* Answer.swift in Sources */,
 				B149EA13240065A80058C45C /* QuestionsEditor.swift in Sources */,
 				B1843F1C23F232C800297240 /* Scale1to5AnswerCell.swift in Sources */,
 				B12052F023E47F47005FD629 /* SingleQuestionContract.swift in Sources */,
@@ -589,7 +621,7 @@
 				B183A7462405941B007148E2 /* EmptyCell.swift in Sources */,
 				B105B23523D4F2320083C5A5 /* QuestionsVC.swift in Sources */,
 				B13FB8DD23DE3C98003F389E /* QuestionsController.swift in Sources */,
-				B1BBB43F23FF127500D456D3 /* StatsCell.swift in Sources */,
+				B1BBB43F23FF127500D456D3 /* GeneralInfoStackViewCell.swift in Sources */,
 				B166D1CB2407530400677BB7 /* BehaviorController.swift in Sources */,
 				B149142C240866610090C23C /* AddBehaviorController.swift in Sources */,
 				B1BBB44823FF439D00D456D3 /* DataManager.swift in Sources */,

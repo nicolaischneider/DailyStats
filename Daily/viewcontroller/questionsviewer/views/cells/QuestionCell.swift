@@ -135,10 +135,10 @@ class QuestionCell: UITableViewCell {
         answeredLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
         // stats
-        bgView.addSubview(averageLabel)
+        /*bgView.addSubview(averageLabel)
         averageLabel.topAnchor.constraint(equalTo: answeredLabel.bottomAnchor, constant: 0).isActive = true
         averageLabel.leftAnchor.constraint(equalTo: bgView.leftAnchor, constant: 10).isActive = true
         averageLabel.rightAnchor.constraint(equalTo: bgView.rightAnchor, constant: -10).isActive = true
-        averageLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        averageLabel.heightAnchor.constraint(equalToConstant: 25).isActive = true*/
     }
 }

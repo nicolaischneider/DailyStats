@@ -11,4 +11,5 @@ import Foundation
 protocol AnswerDelegate {
     func scale1to5QuestionWasAnsweredWith (res: Int, tag: Int)
     func yesQuestionWasAnsweredWithYes (res: Bool, tag: Int)
+    func addBehaviors (selectedBehaviors: [Bool])
 }

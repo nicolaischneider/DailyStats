@@ -8,32 +8,16 @@
 
 import Foundation
 
-enum QuestionTypes: Int, Codable {
+enum QuestionType: Int, Codable {
     case yesNo
     case scale1to5
 }
 
-class QuestionType: Codable {
-    private var questionType: QuestionTypes!
-    private var typeText: String!
-    
-    func getType () -> QuestionTypes {
-        return questionType
-    }
-    
-    func getTypeText () -> String {
-        return typeText
-    }
-    
-    init(type: QuestionTypes) {
-        questionType = type
-        typeText = generateTypeText(type: type)
-    }
-    
-    private func generateTypeText (type: QuestionTypes) -> String {
+class TypeMgr: NSObject {
+    static func getTextOfType (_ type: QuestionType) -> String {
         switch type {
-            case QuestionTypes.yesNo: return "Yes/No"
-            case QuestionTypes.scale1to5: return "Scale 1-5"
+            case .yesNo: return "Yes/No"
+            case .scale1to5: return "Scale 1-5"
         }
     }
 }

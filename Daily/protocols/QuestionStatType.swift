@@ -12,5 +12,4 @@ enum QuestionStatType: CaseIterable {
     case type
     case timesAnswered
     case dateOfCreation
-    case stats
 }

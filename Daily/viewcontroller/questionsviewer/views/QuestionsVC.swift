@@ -16,6 +16,7 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
     @IBOutlet var addButton: UIButton!
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var behaviorButton: UIButton!
+    @IBOutlet weak var noQuestionsLabel: UILabel!
     
     // labels
     @IBOutlet weak var lastAnsweredLabel: UILabel!
@@ -54,6 +55,7 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
     func reloadData() {
         tableView.reloadData()
         answerButton.isEnabled = controller.isAnswerButtonActivated()
+        noQuestionsLabel.isHidden = controller.areQuestionsAvailable()
     }
     
     func reloadLastAnswered () {
@@ -77,6 +79,7 @@ class QuestionsVC: UIViewController, QuestionsVCDelegate {
         setupButton(button: answerButton)
         setupButton(button: behaviorButton)
         answerButton.isEnabled = controller.isAnswerButtonActivated()
+        noQuestionsLabel.isHidden = controller.areQuestionsAvailable()
         
         // table view
         tableView.register(QuestionCell.self, forCellReuseIdentifier: cellName)
@@ -105,7 +108,7 @@ extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
         
         // edit cell
         cell.question.text = question.question
-        cell.questionType.text = "Type: " + question.type.getTypeText()
+        cell.questionType.text = "Type: " + TypeMgr.getTextOfType(question.type)
         cell.coloredView.backgroundColor = questionColor
         cell.answeredLabel.text = "Answered " + String(question.timesAnswered) + " times"
         cell.averageLabel.text = controller.getStatsForQuestionAtIndex(index: indexPath.row)
@@ -115,10 +118,15 @@ extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == controller.getNumberofQuestions() { return 100 }
-        return 150
+        return 125
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // case: user pressed on empty cell
+        if indexPath.row == controller.getNumberofQuestions() {
+            print("empty cell")
+            return
+        }
         controller.navigateToSingleQuestion(questionIndex: indexPath.row)
     }
 }

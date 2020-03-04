@@ -13,10 +13,13 @@ class QuestionsController: QuestionsControllerDelegate {
     
     var view: QuestionsVC!
     var dataManager: DataManager!
+    var statsComp: StatsComputer!
     
     init(view: QuestionsVC) {
         self.view = view
         self.dataManager = DataManager()
+        self.statsComp = StatsComputer()
+        self.statsComp.delegate = self
     }
     
     func getNumberofQuestions() -> Int {
@@ -33,18 +36,23 @@ class QuestionsController: QuestionsControllerDelegate {
         let list = dataManager.getQuestions()
         let question = list[index]
         
-        switch question.type.getType() {
+        switch question.type {
         case .yesNo:
-            if let scores = StatsComputer.avgStatsForYesNoQuestion(question: question) {
-                return String(scores.0) + "% Yes; " + String(scores.1) + "% No"
+            //if let scores = StatsComputer.avgStatsForYesNoQuestion(question: question) {
+            if let scores = statsComp.getAvgStatsForQuestion(question: question) {
+                return String(scores[0]) + "% Yes; " + String(scores[1]) + "% No"
             } else {
                 return "No Stats available yet."
             }
         case .scale1to5:
-            if let score = StatsComputer.avgStatsForScale1to5Question(question: question) {
+            if let score = statsComp.getAvgScoreForQuestion(question: question) {
                 return "Average Score: " + String(score)
             }
             return "No Stats available yet."
+        
+        case .none:
+            print("error: non existing type")
+            return ""
         }
     }
     
@@ -63,9 +71,15 @@ class QuestionsController: QuestionsControllerDelegate {
         }
     }
     
+    func areQuestionsAvailable () -> Bool {
+        if dataManager.getQuestions().count > 0 { return true }
+        else { return false }
+    }
+    
     func isAnswerButtonActivated () -> Bool {
         let questions = getListOfQuestionsToAnswer()
         return questions.count > 0
+        //return true
     }
     
     private func getListOfQuestionsToAnswer () -> [Question] {
@@ -103,7 +117,9 @@ class QuestionsController: QuestionsControllerDelegate {
         // get question
         let selectedQuestion = getQuestionAtIndex(index: questionIndex)
         singleQuestionController.controller = SingleQuestionController(view: singleQuestionController, question: selectedQuestion)
-        singleQuestionController.controller.delegate = self
+        singleQuestionController.controller.setDelegates(qDelegate: self, bDelegate: self)
+        //singleQuestionController.controller.questionsDelegate = self
+        //singleQuestionController.controller.behaviorDelegate = self
         
         // segue
         singleQuestionController.modalPresentationStyle = .fullScreen
@@ -122,7 +138,10 @@ class QuestionsController: QuestionsControllerDelegate {
     }
     
     func navigateToAnswerQuestion () {
+        
         let questsToAnswer = getListOfQuestionsToAnswer()
+        //let questsToAnswer = dataManager.getQuestions()
+        
         if questsToAnswer.count == 0 {
             return
         }
@@ -132,6 +151,7 @@ class QuestionsController: QuestionsControllerDelegate {
         
         answerController.controller = AnswerController(view: answerController, questions: questsToAnswer)
         answerController.controller.delegate = self
+        answerController.controller.behaviorDelegate = self
         
         // segue
         answerController.modalPresentationStyle = .fullScreen
@@ -170,8 +190,8 @@ extension QuestionsController: QuestionsEditorDelegate, BehaviorDelegate {
         reloadData()
     }
     
-    func updateStatsOfQuestion(questionID: UUID, answerIndex: Int) {
-        dataManager.updateStatsOfQuestion(questionID: questionID, answerIndex: answerIndex)
+    func updateStatsOfQuestion(questionID: UUID, answerIndex: Int, behaviors: [Behavior]) {
+        dataManager.updateStatsOfQuestion(questionID: questionID, answerIndex: answerIndex, behaviors: behaviors)
         reloadData()
         reloadLastAnswered()
     }

@@ -10,11 +10,6 @@ import Foundation
 import UIKit
 
 public enum Colors: Int, Codable {
-    // ?? - delete later
-    case yellow
-    case red
-    case green
-    
     // quesions
     case lambsGreen
     case costalBlue
@@ -22,10 +17,18 @@ public enum Colors: Int, Codable {
     case coral
     case terracotta
     
+    // behaviors
+    case strongYellow
+    case aquamarine
+    case beige
+    case icecreamPink
+    case leafGreen
+    
     // buttons
     case moss // main
     case seashell // type selected
     case gray // type unslected
+    case lightGray
     
     // default
     case defaultCol
@@ -34,16 +37,23 @@ public enum Colors: Int, Codable {
 public class ColorPicker {
     public static func getColor (_ color: Colors) -> UIColor {
         switch color {
-            case .green: return UIColor(red: 143/255, green: 185/255, blue: 168/255, alpha: 1.0)
-            case .yellow: return UIColor(red: 255/255, green: 193/255, blue: 83/255, alpha: 1.0)
-            case .red: return UIColor(red: 176/255, green: 95/255, blue: 109/255, alpha: 1.0)
-            
             // questions
             case .lambsGreen: return UIColor(red: 142/255, green: 186/255, blue: 168/255, alpha: 1.0)
             case .costalBlue: return UIColor(red: 185/255, green: 205/255, blue: 202/255, alpha: 1.0)
             case .desertSand: return UIColor(red: 242/255, green: 220/255, blue: 203/255, alpha: 1.0)
             case .coral: return UIColor(red: 253/255, green: 172/255, blue: 138/255, alpha: 1.0)
             case .terracotta: return UIColor(red: 227/255, green: 130/255, blue: 81/255, alpha: 1.0)
+            
+            // unselected behavior
+            case .lightGray: return UIColor(red: 235/255, green: 237/255, blue: 235/255, alpha: 1.0)
+            
+            // selected behaviors
+            case .strongYellow: return UIColor(red: 252/255, green: 202/255, blue: 27/255, alpha: 1.0)
+            case .aquamarine: return UIColor(red: 152/255, green: 239/255, blue: 237/255, alpha: 1.0)
+            case .beige: return UIColor(red: 241/255, green: 231/255, blue: 176/255, alpha: 1.0)
+            case .icecreamPink: return UIColor(red: 251/255, green: 209/255, blue: 211/255, alpha: 1.0)
+            case .leafGreen: return UIColor(red: 146/255, green: 180/255, blue: 115/255, alpha: 1.0)
+            
             case .defaultCol: return UIColor.black
             
             // behaviors

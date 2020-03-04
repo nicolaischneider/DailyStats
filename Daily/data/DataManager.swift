@@ -32,9 +32,9 @@ class DataManager: NSObject {
             print("questions extracted")
         } else {
             // THREE TEST QUESTIONS
-            let quest1 = Question(question: "How happy are you?", type: QuestionType.init(type: .scale1to5), color: .lambsGreen)
-            let quest2 = Question(question: "Did you feel any dizziness when waking up?", type: QuestionType.init(type: .yesNo), color: .costalBlue)
-            let quest3 = Question(question: "Are you excited for today?", type: QuestionType.init(type: .yesNo), color: .desertSand)
+            let quest1 = Question(question: "How happy are you?", type: .scale1to5, color: .lambsGreen)
+            let quest2 = Question(question: "Did you feel any dizziness when waking up?", type:.yesNo, color: .costalBlue)
+            let quest3 = Question(question: "Are you excited for today?", type: .yesNo, color: .desertSand)
             listOfQuestions.append(quest1)
             listOfQuestions.append(quest2)
             listOfQuestions.append(quest3)
@@ -64,13 +64,10 @@ class DataManager: NSObject {
         updateQuestionData()
     }
     
-    func updateStatsOfQuestion (questionID: UUID, answerIndex: Int) {
+    func updateStatsOfQuestion (questionID: UUID, answerIndex: Int, behaviors: [Behavior]) {
         for i in 0..<listOfQuestions.count {
-            if questionID == listOfQuestions[i].tag {                
-                let stat = Stats(ans: answerIndex, date: Date(timeIntervalSinceNow: .zero))
-                listOfQuestions[i].stats.append(stat)
-                listOfQuestions[i].timesAnswered += 1
-                listOfQuestions[i].lastAnswered = Date(timeIntervalSinceNow: .zero)
+            if questionID == listOfQuestions[i].tag {
+                listOfQuestions[i].updateStats(ans: answerIndex, behaviors: behaviors)
                 break
             }
         }
@@ -100,14 +97,15 @@ class DataManager: NSObject {
             listOfBehaviors = behaviorArray
             print("behaviors extracted")
         } else {
-            listOfBehaviors.append(Behavior(behavior: "weed", color: .desertSand))
-            listOfBehaviors.append(Behavior(behavior: "exercise", color: .costalBlue))
-            listOfBehaviors.append(Behavior(behavior: "slept well", color: .coral))
-            listOfBehaviors.append(Behavior(behavior: "coffee", color: .desertSand))
-            listOfBehaviors.append(Behavior(behavior: "went outside", color: .lambsGreen))
-            listOfBehaviors.append(Behavior(behavior: "meditation", color: .coral))
-            listOfBehaviors.append(Behavior(behavior: "relaxation", color: .terracotta))
-            listOfBehaviors.append(Behavior(behavior: "stressful day", color: .costalBlue))
+            listOfBehaviors.append(Behavior(behavior: "weed", color: .strongYellow))
+            listOfBehaviors.append(Behavior(behavior: "exercise", color: .aquamarine))
+            listOfBehaviors.append(Behavior(behavior: "slept well", color: .leafGreen))
+            listOfBehaviors.append(Behavior(behavior: "coffee", color: .icecreamPink))
+            listOfBehaviors.append(Behavior(behavior: "went outside", color: .aquamarine))
+            listOfBehaviors.append(Behavior(behavior: "meditation", color: .beige))
+            listOfBehaviors.append(Behavior(behavior: "relaxation", color: .strongYellow))
+            listOfBehaviors.append(Behavior(behavior: "stressful day", color: .icecreamPink))
+            Behavior.updateBehaviors(listOfBehaviors: listOfBehaviors)
         }
     }
     

@@ -26,7 +26,7 @@ class AddBehaviorController {
         self.behaviorColor = getColorForIndex(index: 0)
         editMode = false
         
-        // is edit mode ?
+        // case: is edit mode
         if let _behavior = behavior {
             editMode = true
             behaviorToEdit = _behavior
@@ -56,11 +56,11 @@ class AddBehaviorController {
     
     func getColorForIndex(index: Int) -> Colors {
         switch index {
-            case 0: return .lambsGreen
-            case 1: return .costalBlue
-            case 2: return .desertSand
-            case 3: return .coral
-            case 4: return .terracotta
+            case 0: return .strongYellow
+            case 1: return .aquamarine
+            case 2: return .beige
+            case 3: return .icecreamPink
+            case 4: return .leafGreen
             default: return .defaultCol
         }
     }
@@ -96,8 +96,22 @@ class AddBehaviorController {
     
     func deleteBehavior () {
         if editMode {
-            delegate.deleteBehavior(behaviorID: behaviorToEdit!.id)
-            dismissVC()
+            // Alert notification
+            let alert = UIAlertController(title: "Are you sure?", message: "The Behavior \"\(behaviorText!)\" and all its Stats will be deleted forever.", preferredStyle: .alert)
+            
+            // cancel quit and keep playing
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { action in
+                return
+            }
+            alert.addAction(cancelAction)
+            
+            // quit the game
+            let yesAction = UIAlertAction(title: "Delete", style: .destructive) { action in
+                self.delegate.deleteBehavior(behaviorID: self.behaviorToEdit!.id)
+                self.dismissVC()
+            }
+            alert.addAction(yesAction)
+            view.present(alert, animated: true, completion: nil)
         }
     }
     

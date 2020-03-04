@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnswerVC: UIViewController, AnswerViewControllerDelegate, AnswerDelegate {
+class AnswerVC: UIViewController, AnswerViewControllerDelegate {
     
     var controller: AnswerController!
         
@@ -20,6 +20,7 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate, AnswerDelegate {
     // question view
     private let cellNameYesNo = "answerYesNoCell"
     private let cellnameScale1to5 = "answerScale1to5Cell"
+    private let cellNameBehaviors = "behaviorCell"
     fileprivate let collectionView: UICollectionView = {
         // setup layout
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
@@ -42,32 +43,26 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate, AnswerDelegate {
     }
     
     @IBAction func quitAction(_ sender: Any) {
-        controller.dismissVC()
-    }
-    
-    func scale1to5QuestionWasAnsweredWith(res: Int, tag: Int) {
-        scrollToNextItem(tag: tag)
-        controller.answeredQuestion(questionTag: tag, answer: res)
-    }
-    
-    func yesQuestionWasAnsweredWithYes(res: Bool, tag: Int) {
-        scrollToNextItem(tag: tag)
-        let res2 = (res) ? 0 : 1
-        controller.answeredQuestion(questionTag: tag, answer: res2)
+        controller.closeAction()
     }
     
     func scrollToNextItem(tag: Int) {
-        if tag < controller.getNumOfQuestions()-1 {
+        if tag < controller.getNumOfQuestions() {
             let indexPath = IndexPath(item: tag+1, section: 0)
             collectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
-        }        
-        questionNumber.text = String(tag+2)+"/"+String(controller.getNumOfQuestions())
+        }
+        if tag+2 > controller.getNumOfQuestions() {
+            questionNumber.isHidden = true
+        } else {
+            questionNumber.text = String(tag+2)+"/"+String(controller.getNumOfQuestions())
+        }
     }
     
     private func setupObjects () {
         // collection view
         collectionView.register(YesNoAnswerCell.self, forCellWithReuseIdentifier: cellNameYesNo)
         collectionView.register(Scale1to5AnswerCell.self, forCellWithReuseIdentifier: cellnameScale1to5)
+        collectionView.register(ListOfBehaviorsCell.self, forCellWithReuseIdentifier: cellNameBehaviors)
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -87,7 +82,7 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate, AnswerDelegate {
 // setup collection view
 extension AnswerVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return controller.getNumOfQuestions()
+        return controller.getNumOfQuestions()+1
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -96,12 +91,20 @@ extension AnswerVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        // last page: behaviors
+        if indexPath.item == controller.getNumOfQuestions() {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellNameBehaviors, for: indexPath) as! ListOfBehaviorsCell
+            cell.behaviorDelegate = controller.getDelegate()
+            cell.answerDelegate = self
+            return cell
+        }
+        
         let question = controller.getQuestionAtIndex(index: indexPath.item)
         
-        switch question.type.getType() {
+        switch question.type {
         
         // yes or no question
-        case QuestionTypes.yesNo:
+        case .yesNo:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellNameYesNo, for: indexPath) as! YesNoAnswerCell
             cell.setupColor(color: question.color)
             cell.tag = indexPath.item
@@ -110,14 +113,36 @@ extension AnswerVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSour
             return cell
             
         // question with scale of 1 to 5
-        case QuestionTypes.scale1to5:
+        case .scale1to5:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellnameScale1to5, for: indexPath) as! Scale1to5AnswerCell
             cell.setupColor(color: question.color)
             cell.tag = indexPath.item
             cell.delegate = self
             cell.question.text = question.question
             return cell
+        
+        case .none:
+            print("error: trying to return a non existing cell")
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellNameYesNo, for: indexPath) as! YesNoAnswerCell
+            return cell
         }
+    }
+}
+
+extension AnswerVC: AnswerDelegate {
+    func scale1to5QuestionWasAnsweredWith(res: Int, tag: Int) {
+        scrollToNextItem(tag: tag)
+        controller.answeredQuestion(questionTag: tag, answer: res)
+    }
+    
+    func yesQuestionWasAnsweredWithYes(res: Bool, tag: Int) {
+        scrollToNextItem(tag: tag)
+        let res2 = (res) ? 0 : 1
+        controller.answeredQuestion(questionTag: tag, answer: res2)
+    }
+    
+    func addBehaviors(selectedBehaviors: [Bool]) {
+        controller.addBhevaviors(selectedBehaviors: selectedBehaviors)
     }
 }
 

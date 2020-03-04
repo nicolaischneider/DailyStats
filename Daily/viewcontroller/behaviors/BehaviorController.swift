@@ -18,6 +18,11 @@ class BehaviorController {
         self.view = view
     }
     
+    func areBehaviorsAvailable () -> Bool {
+        if getNumOfBehaviors() > 0 { return true }
+        else { return false }
+    }
+    
     func getNumOfBehaviors () -> Int {
         let list = getListOfBehaviors()
         return list.count

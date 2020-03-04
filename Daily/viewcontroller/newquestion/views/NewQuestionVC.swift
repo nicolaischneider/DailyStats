@@ -54,12 +54,12 @@ class NewQuestionVC: UIViewController, NewQuestionVCDelegate, UITextViewDelegate
     
     @IBAction func yesNoAction(_ sender: Any) {
         selectButtonAction(isYesNo: true)
-        controller.updateTypeOfQuestion(type: QuestionTypes.yesNo)
+        controller.updateTypeOfQuestion(type: .yesNo)
     }
     
     @IBAction func scaleAction(_ sender: Any) {
         selectButtonAction(isYesNo: false)
-        controller.updateTypeOfQuestion(type: QuestionTypes.scale1to5)
+        controller.updateTypeOfQuestion(type: .scale1to5)
     }
     
     private func selectButtonAction (isYesNo: Bool) {
@@ -78,19 +78,20 @@ class NewQuestionVC: UIViewController, NewQuestionVCDelegate, UITextViewDelegate
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        let questionLength = textView.text.count
-        if questionLength > 90 {
-            textView.text.removeLast()
-            return false
-        }
-        
-        controller.updateQuestion(question: textView.text)
         if(text == "\n") {
             dismissKeyboard()
             return false
         }
         return true
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        let questionLength = textView.text.count
+        if questionLength > 90 {
+            textView.text.removeLast()
+            return
+        }
+        controller.updateQuestion(question: textView.text)
     }
     
     func dismissKeyboard () {
