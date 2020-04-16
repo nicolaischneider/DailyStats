@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionsVC: UIViewController, QuestionsVCDelegate {
+class QuestionsVC: UIViewController {
     
     var controller: QuestionsController!
     

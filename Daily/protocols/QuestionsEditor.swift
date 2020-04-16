@@ -12,5 +12,6 @@ protocol QuestionsEditorDelegate {
     // questions
     func addQuestion (question: Question)
     func deleteQuestion (questionID: UUID)
-    func updateStatsOfQuestion (questionID: UUID, answerIndex: Int, behaviors: [Behavior])    
+    func updateStatsOfQuestion (questionID: UUID, answerIndex: Int, behaviors: [Behavior])
+    func isQuestionDuplicate (question: String) -> Bool
 }

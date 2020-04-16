@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnswerVC: UIViewController, AnswerViewControllerDelegate {
+class AnswerVC: UIViewController {
     
     var controller: AnswerController!
         
@@ -16,6 +16,7 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var questionNumber: UILabel!
+    @IBOutlet weak var skipButton: UIButton!
     
     // question view
     private let cellNameYesNo = "answerYesNoCell"
@@ -46,6 +47,10 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate {
         controller.closeAction()
     }
     
+    @IBAction func skipAction(_ sender: Any) {
+        controller.skipQuestion()
+    }
+    
     func scrollToNextItem(tag: Int) {
         if tag < controller.getNumOfQuestions() {
             let indexPath = IndexPath(item: tag+1, section: 0)
@@ -53,6 +58,7 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate {
         }
         if tag+2 > controller.getNumOfQuestions() {
             questionNumber.isHidden = true
+            skipButton.isHidden = true
         } else {
             questionNumber.text = String(tag+2)+"/"+String(controller.getNumOfQuestions())
         }
@@ -71,11 +77,22 @@ class AnswerVC: UIViewController, AnswerViewControllerDelegate {
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
         
-        // edit simple stuff
+        // edit objects
         titleLabel.isHidden = true
         questionNumber.text = "1/"+String(controller.getNumOfQuestions())
+        
+        // skip button
+        skipButton.layer.cornerRadius = 15
+        skipButton.backgroundColor = ColorPicker.getButtonColors(.moss)
+        skipButton.layer.shadowColor = ColorPicker.getButtonColors(.moss).cgColor
+        skipButton.layer.shadowRadius = 10
+        skipButton.layer.shadowOpacity = 0.6
+        skipButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        // bring views to front
         view.bringSubviewToFront(questionNumber)
         view.bringSubviewToFront(quitButton)
+        view.bringSubviewToFront(skipButton)
     }
 }
 

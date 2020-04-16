@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AnswerController: AnswerControllerDelegate {
+class AnswerController {
     var view: AnswerVC!
     var delegate: QuestionsEditorDelegate!
     var behaviorDelegate: BehaviorDelegate!
@@ -48,6 +48,14 @@ class AnswerController: AnswerControllerDelegate {
         view.dismiss(animated: true, completion: nil)
     }
     
+    func skipQuestion () {
+        answeredQuestion(questionTag: -1, answer: -1)
+        
+        let currentQuestion = listOfAnswers.count-1
+        view.scrollToNextItem(tag: currentQuestion)
+        
+    }
+    
     func getNumOfQuestions() -> Int {
         return listOfQuestions.count
     }
@@ -60,7 +68,7 @@ class AnswerController: AnswerControllerDelegate {
         let listOfBehaviors = behaviorDelegate.getListOfBehaviors()
         var behaviorsToAdd = [Behavior]()
         
-        // get all behaviors rto add to stats
+        // get all behaviors to add to stats
         for i in 0..<selectedBehaviors.count {
             if selectedBehaviors[i] {
                 behaviorsToAdd.append(listOfBehaviors[i])
@@ -76,13 +84,19 @@ class AnswerController: AnswerControllerDelegate {
         for j in 0..<listOfQuestions.count {
             let questionID = listOfQuestions[j].tag
             let answerIndex = listOfAnswers[j]
+            
+            // in case of -1 the question was skipped
+            if answerIndex == -1 {
+                continue
+            }
+            
             delegate.updateStatsOfQuestion(questionID: questionID!, answerIndex: answerIndex, behaviors: behaviorsToAdd)
         }
         
         // all stats were update: go back to main menu
         dismissVC()
     }
-    
+
     func answeredQuestion (questionTag: Int, answer: Int) {
         listOfAnswers.append(answer)
     }

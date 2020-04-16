@@ -9,14 +9,15 @@
 import Foundation
 import UIKit
 
-class SingleQuestionController: SingleQuestionControllerDelegate {
-    var view: UIViewController!
+class SingleQuestionController {
+    
+    var view: SingleQuestionVC!
     var statsComp: StatsComputer!
     var questionsDelegate: QuestionsEditorDelegate!
     
     var question: Question!
     
-    init(view: UIViewController, question: Question) {
+    init(view: SingleQuestionVC, question: Question) {
         self.view = view
         self.question = question
         self.statsComp = StatsComputer()

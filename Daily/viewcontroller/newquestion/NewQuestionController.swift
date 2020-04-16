@@ -9,8 +9,9 @@
 import Foundation
 import UIKit
 
-class NewQuestionController: NewQuestionControllerDelegate {
-    var view: UIViewController!
+class NewQuestionController {
+    
+    var view: NewQuestionVC!
     
     var delegate: QuestionsEditorDelegate!
     
@@ -18,7 +19,7 @@ class NewQuestionController: NewQuestionControllerDelegate {
     private var questionType: QuestionType?
     private var questionColor: Colors?
     
-    init(view: UIViewController) {
+    init(view: NewQuestionVC) {
         self.view = view
     }
         
@@ -54,18 +55,23 @@ class NewQuestionController: NewQuestionControllerDelegate {
     }
     
     func addQuestion() {
-        guard let _ = questionStr else {
-            print("Question is missing")
+        guard let quest = questionStr else {
+            view.showError(error: "Question is missing")
             return
         }
         
         guard let _ = questionType else {
-            print("Type is missing")
+            view.showError(error: "Choose a Type")
             return
         }
         
         guard let _ = questionColor else {
-            print("Color is missing")
+            view.showError(error: "Choose a color")
+            return
+        }
+        
+        if delegate.isQuestionDuplicate(question: quest) {
+            view.showError(error: "Question already exists")
             return
         }
         

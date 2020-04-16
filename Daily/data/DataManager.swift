@@ -64,6 +64,15 @@ class DataManager: NSObject {
         updateQuestionData()
     }
     
+    func isQuestionDuplicate (question: String) -> Bool {
+        for quest in listOfQuestions {
+            if quest.question == question {
+                return true
+            }
+        }
+        return false
+    }
+    
     func updateStatsOfQuestion (questionID: UUID, answerIndex: Int, behaviors: [Behavior]) {
         for i in 0..<listOfQuestions.count {
             if questionID == listOfQuestions[i].tag {

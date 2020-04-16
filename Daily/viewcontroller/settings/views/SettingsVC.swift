@@ -63,7 +63,7 @@ class SettingsVC: UIViewController {
     
     private func setupObjects () {
         // corner radius
-        bgView.layer.cornerRadius = 20
+        bgView.layer.cornerRadius = 10
         subView.layer.cornerRadius = 10
         
         // set alpha values

@@ -13,7 +13,7 @@ class StatsComputer: NSObject {
     var delegate: BehaviorDelegate!
     
     let maxNumOfBehaviors = 2 // max number of behaviors / answer
-    let minNumOfNeededAppearances = 10 // needed appearance of behavior to be added to answer
+    let minNumOfNeededAppearances = 5 // needed appearance of behavior to be added to answer
     
     override init() {
         super.init()
@@ -99,6 +99,6 @@ class StatsComputer: NSObject {
         
         // return nil for empty list
         if listOfbehaviors.count == 0 { return nil }
-        else { return listOfbehaviors }
+        else { return listOfbehaviors }
     }
 }

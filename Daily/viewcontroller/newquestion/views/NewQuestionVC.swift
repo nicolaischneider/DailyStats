@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewQuestionVC: UIViewController, NewQuestionVCDelegate, UITextViewDelegate {
+class NewQuestionVC: UIViewController, UITextViewDelegate {
     
     var controller: NewQuestionController!
     
@@ -42,6 +42,9 @@ class NewQuestionVC: UIViewController, NewQuestionVCDelegate, UITextViewDelegate
         collectionView.register(ColorCell.self, forCellWithReuseIdentifier: "colorCell")
         return collectionView
     }()
+    
+    // error
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +113,16 @@ class NewQuestionVC: UIViewController, NewQuestionVCDelegate, UITextViewDelegate
         controller.addQuestion()
     }
     
+    func showError (error: String) {
+        errorLabel.text = error
+        errorLabel.alpha = 1
+        
+        // fade out
+        UIView.animate(withDuration: 0.2, delay: 2.0, animations: {
+            self.errorLabel.alpha = 0
+        })
+    }
+    
     private func setupButton (button: UIButton, color: Colors) {
         button.backgroundColor = ColorPicker.getButtonColors(color)
         button.layer.cornerRadius = 10
@@ -156,6 +169,9 @@ class NewQuestionVC: UIViewController, NewQuestionVCDelegate, UITextViewDelegate
         
         // collection view
         setupCollectionView()
+        
+        // error label
+        errorLabel.alpha = 0
     }
 }
 

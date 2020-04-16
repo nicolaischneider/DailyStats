@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SingleQuestionVC: UIViewController, SingleQuestionVCDelegate {
+class SingleQuestionVC: UIViewController {
+    
     var controller: SingleQuestionController!
     
     @IBOutlet weak var bgView: UIView!

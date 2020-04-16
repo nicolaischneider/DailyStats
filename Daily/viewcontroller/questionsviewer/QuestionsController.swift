@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class QuestionsController: QuestionsControllerDelegate {
+class QuestionsController {
     
     var view: QuestionsVC!
     var dataManager: DataManager!
@@ -194,6 +194,10 @@ extension QuestionsController: QuestionsEditorDelegate, BehaviorDelegate {
         dataManager.updateStatsOfQuestion(questionID: questionID, answerIndex: answerIndex, behaviors: behaviors)
         reloadData()
         reloadLastAnswered()
+    }
+    
+    func isQuestionDuplicate (question: String) -> Bool {
+        return dataManager.isQuestionDuplicate(question: question)
     }
     
     // MARK: - BEHAVIORS

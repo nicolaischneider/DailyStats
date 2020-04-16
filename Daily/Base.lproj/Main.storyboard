@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ct6-QA-bZ0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ct6-QA-bZ0">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--QuestionsVC-->
         <scene sceneID="yuy-y4-cbM">
             <objects>
-                <viewController storyboardIdentifier="QuestionsViewController" id="Ct6-QA-bZ0" customClass="QuestionsVC" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionsViewController" id="Ct6-QA-bZ0" customClass="QuestionsVC" customModule="DailyStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sph-Kj-aSh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzg-jB-Gdh">
                                 <rect key="frame" x="10" y="693" width="355" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4t-mj-W5r" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4t-mj-W5r" customClass="ButtonPress" customModule="DailyStats" customModuleProvider="target">
                                         <rect key="frame" x="295" y="10" width="50" height="50"/>
                                         <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -57,7 +57,7 @@
                                             <action selector="addAction:" destination="Ct6-QA-bZ0" eventType="touchUpInside" id="mmS-R4-X5f"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A6-rR-JyO" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8A6-rR-JyO" customClass="ButtonPress" customModule="DailyStats" customModuleProvider="target">
                                         <rect key="frame" x="10" y="10" width="120" height="50"/>
                                         <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -70,7 +70,7 @@
                                             <action selector="answerAction:" destination="Ct6-QA-bZ0" eventType="touchUpInside" id="tLp-E7-FbL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2t-08-dlU" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2t-08-dlU" customClass="ButtonPress" customModule="DailyStats" customModuleProvider="target">
                                         <rect key="frame" x="235" y="10" width="50" height="50"/>
                                         <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -160,7 +160,7 @@
         <!--SettingsVC-->
         <scene sceneID="h7Z-sm-lUL">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="6Gu-Fk-YuG" customClass="SettingsVC" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="6Gu-Fk-YuG" customClass="SettingsVC" customModule="DailyStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jtT-ZT-dWg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -305,7 +305,7 @@
         <!--New QuestionVC-->
         <scene sceneID="rCK-Uu-On3">
             <objects>
-                <viewController storyboardIdentifier="NewQuestionViewController" id="1go-lj-IPz" customClass="NewQuestionVC" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewQuestionViewController" id="1go-lj-IPz" customClass="NewQuestionVC" customModule="DailyStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="feG-Sr-bMg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -368,7 +368,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBS-Jy-eam" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBS-Jy-eam" customClass="ButtonPress" customModule="DailyStats" customModuleProvider="target">
                                 <rect key="frame" x="20" y="397" width="157.66666666666666" height="50"/>
                                 <color key="backgroundColor" red="0.69019607843137254" green="0.37254901960784315" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -382,7 +382,7 @@
                                     <action selector="yesNoAction:" destination="1go-lj-IPz" eventType="touchUpInside" id="9Qm-qs-xNB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwD-wg-gZc" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwD-wg-gZc" customClass="ButtonPress" customModule="DailyStats" customModuleProvider="target">
                                 <rect key="frame" x="197.66666666666663" y="397" width="157.33333333333337" height="50"/>
                                 <color key="backgroundColor" red="0.5607843137254902" green="0.72549019607843135" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -405,7 +405,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xch-sx-LUc" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xch-sx-LUc" customClass="ButtonPress" customModule="DailyStats" customModuleProvider="target">
                                 <rect key="frame" x="20" y="708" width="335" height="50"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -419,6 +419,15 @@
                                     <action selector="addQuestion:" destination="1go-lj-IPz" eventType="touchUpInside" id="GxR-lv-YYe"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaC-na-vwT">
+                                <rect key="frame" x="10" y="658" width="355" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1e8-v1-IWF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -427,6 +436,7 @@
                             <constraint firstItem="rDE-ut-ouT" firstAttribute="trailing" secondItem="p8P-1e-zJj" secondAttribute="trailing" constant="20" id="3Xc-fA-oaP"/>
                             <constraint firstItem="rDE-ut-ouT" firstAttribute="bottom" secondItem="Xch-sx-LUc" secondAttribute="bottom" constant="20" id="690-rB-2xr"/>
                             <constraint firstItem="A92-rN-6MM" firstAttribute="top" secondItem="p8P-1e-zJj" secondAttribute="bottom" constant="20" id="9Ds-DP-6ZJ"/>
+                            <constraint firstItem="aaC-na-vwT" firstAttribute="leading" secondItem="rDE-ut-ouT" secondAttribute="leading" constant="10" id="AUv-cC-4uV"/>
                             <constraint firstItem="p8P-1e-zJj" firstAttribute="top" secondItem="Z4e-dK-KId" secondAttribute="bottom" constant="8" symbolic="YES" id="C4q-As-Cyv"/>
                             <constraint firstItem="A92-rN-6MM" firstAttribute="leading" secondItem="rDE-ut-ouT" secondAttribute="leading" constant="20" id="Fxh-u3-BBa"/>
                             <constraint firstItem="JwD-wg-gZc" firstAttribute="top" secondItem="A92-rN-6MM" secondAttribute="bottom" constant="10" id="H2z-mD-X41"/>
@@ -440,7 +450,9 @@
                             <constraint firstItem="zBS-Jy-eam" firstAttribute="width" secondItem="feG-Sr-bMg" secondAttribute="width" multiplier="0.42" id="ea4-RM-MRJ"/>
                             <constraint firstItem="zBS-Jy-eam" firstAttribute="top" secondItem="A92-rN-6MM" secondAttribute="bottom" constant="10" id="kdz-Kw-62Z"/>
                             <constraint firstItem="rDE-ut-ouT" firstAttribute="trailing" secondItem="ANr-9f-MRl" secondAttribute="trailing" constant="20" id="lOh-ne-F7W"/>
+                            <constraint firstItem="rDE-ut-ouT" firstAttribute="trailing" secondItem="aaC-na-vwT" secondAttribute="trailing" constant="10" id="lkh-8G-Vs0"/>
                             <constraint firstItem="ANr-9f-MRl" firstAttribute="top" secondItem="rDE-ut-ouT" secondAttribute="top" constant="30" id="n5u-Im-HaW"/>
+                            <constraint firstItem="Xch-sx-LUc" firstAttribute="top" secondItem="aaC-na-vwT" secondAttribute="bottom" constant="20" id="nB1-Pu-a0R"/>
                             <constraint firstItem="pJd-Sx-fgx" firstAttribute="top" secondItem="zBS-Jy-eam" secondAttribute="bottom" constant="30" id="r6k-Ci-0G3"/>
                             <constraint firstItem="rDE-ut-ouT" firstAttribute="trailing" secondItem="Z4e-dK-KId" secondAttribute="trailing" constant="20" id="sdX-F3-a1d"/>
                             <constraint firstItem="rDE-ut-ouT" firstAttribute="trailing" secondItem="A92-rN-6MM" secondAttribute="trailing" constant="20" id="tbU-1c-gFH"/>
@@ -454,6 +466,7 @@
                     <connections>
                         <outlet property="addQuestionButton" destination="Xch-sx-LUc" id="iLf-b0-9EL"/>
                         <outlet property="bgView" destination="p8P-1e-zJj" id="hsZ-ue-9X5"/>
+                        <outlet property="errorLabel" destination="aaC-na-vwT" id="vsT-ZV-f1S"/>
                         <outlet property="scaleButton" destination="JwD-wg-gZc" id="IQ7-RT-vag"/>
                         <outlet property="textView" destination="dfo-Y9-WkU" id="dHV-R7-bYk"/>
                         <outlet property="title1" destination="Z4e-dK-KId" id="9wd-ej-93t"/>
@@ -469,7 +482,7 @@
         <!--Single QuestionVC-->
         <scene sceneID="Ozw-Z2-CGd">
             <objects>
-                <viewController storyboardIdentifier="SingleQuestionViewController" id="Qbt-rd-d6c" customClass="SingleQuestionVC" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SingleQuestionViewController" id="Qbt-rd-d6c" customClass="SingleQuestionVC" customModule="DailyStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RoP-g2-dan">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -569,7 +582,7 @@
         <!--BehaviorVC-->
         <scene sceneID="tvy-RB-Xob">
             <objects>
-                <viewController storyboardIdentifier="BehaviorViewController" id="6py-hH-PdL" customClass="BehaviorVC" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BehaviorViewController" id="6py-hH-PdL" customClass="BehaviorVC" customModule="DailyStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="r7O-Zc-bCC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -595,7 +608,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJt-T7-UXK" customClass="ButtonPress" customModule="Daily" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJt-T7-UXK" customClass="ButtonPress" customModule="DailyStats" customModuleProvider="target">
                                 <rect key="frame" x="219.66666666666666" y="139" width="39.999999999999972" height="40"/>
                                 <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -645,7 +658,7 @@
         <!--Add BehaviorVC-->
         <scene sceneID="UxQ-Lq-mNE">
             <objects>
-                <viewController storyboardIdentifier="AddBehaviorViewController" id="XgB-71-pvr" customClass="AddBehaviorVC" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddBehaviorViewController" id="XgB-71-pvr" customClass="AddBehaviorVC" customModule="DailyStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q0B-FL-4QU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -750,7 +763,7 @@
         <!--AnswerVC-->
         <scene sceneID="Bqr-Qp-BSU">
             <objects>
-                <viewController storyboardIdentifier="AnswerViewController" id="bxc-qI-ONI" customClass="AnswerVC" customModule="Daily" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AnswerViewController" id="bxc-qI-ONI" customClass="AnswerVC" customModule="DailyStats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z1T-P7-2I4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -775,10 +788,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x/y" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nea-R6-6Jb">
-                                <rect key="frame" x="50" y="718" width="275" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Siw-lC-d6e">
+                                <rect key="frame" x="152.66666666666666" y="728" width="70" height="30"/>
+                                <color key="backgroundColor" red="0.56078431370000004" green="0.72549019609999998" blue="0.6588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Ga6-vf-3um"/>
+                                    <constraint firstAttribute="height" constant="30" id="VjO-lS-XgZ"/>
+                                    <constraint firstAttribute="width" constant="70" id="fCx-Cb-6aW"/>
+                                </constraints>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipAction:" destination="bxc-qI-ONI" eventType="touchUpInside" id="LBX-00-vRj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x/y" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nea-R6-6Jb">
+                                <rect key="frame" x="300" y="728" width="40" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ga6-vf-3um"/>
+                                    <constraint firstAttribute="width" constant="40" id="QgO-or-kLu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                 <nil key="textColor"/>
@@ -788,19 +816,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="qo4-Yu-XCt" firstAttribute="trailing" secondItem="hhp-Mo-3Bg" secondAttribute="trailing" constant="20" id="4uT-xk-UNS"/>
-                            <constraint firstItem="qo4-Yu-XCt" firstAttribute="trailing" secondItem="nea-R6-6Jb" secondAttribute="trailing" constant="50" id="8k6-ZA-7g8"/>
                             <constraint firstItem="hhp-Mo-3Bg" firstAttribute="top" secondItem="jso-gl-5Ow" secondAttribute="bottom" constant="10" id="Osq-zM-VnF"/>
+                            <constraint firstItem="Siw-lC-d6e" firstAttribute="centerX" secondItem="z1T-P7-2I4" secondAttribute="centerX" id="PyW-io-ZnI"/>
                             <constraint firstItem="hhp-Mo-3Bg" firstAttribute="leading" secondItem="qo4-Yu-XCt" secondAttribute="leading" constant="20" id="QSi-ci-Eix"/>
-                            <constraint firstItem="nea-R6-6Jb" firstAttribute="leading" secondItem="qo4-Yu-XCt" secondAttribute="leading" constant="50" id="Ut6-bq-309"/>
                             <constraint firstItem="jso-gl-5Ow" firstAttribute="top" secondItem="qo4-Yu-XCt" secondAttribute="top" constant="30" id="b4C-XK-hr7"/>
                             <constraint firstItem="qo4-Yu-XCt" firstAttribute="bottom" secondItem="nea-R6-6Jb" secondAttribute="bottom" constant="20" id="nWZ-58-S9j"/>
                             <constraint firstItem="qo4-Yu-XCt" firstAttribute="trailing" secondItem="jso-gl-5Ow" secondAttribute="trailing" constant="20" id="oVH-fw-WOa"/>
+                            <constraint firstItem="qo4-Yu-XCt" firstAttribute="bottom" secondItem="Siw-lC-d6e" secondAttribute="bottom" constant="20" id="wf0-F1-4IL"/>
+                            <constraint firstItem="qo4-Yu-XCt" firstAttribute="trailing" secondItem="nea-R6-6Jb" secondAttribute="trailing" constant="35" id="yaZ-mM-gIW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qo4-Yu-XCt"/>
                     </view>
                     <connections>
                         <outlet property="questionNumber" destination="nea-R6-6Jb" id="P2s-AR-NfI"/>
                         <outlet property="quitButton" destination="jso-gl-5Ow" id="aQx-wZ-ndj"/>
+                        <outlet property="skipButton" destination="Siw-lC-d6e" id="rU2-E1-tQD"/>
                         <outlet property="titleLabel" destination="hhp-Mo-3Bg" id="soN-DN-Hom"/>
                     </connections>
                 </viewController>
