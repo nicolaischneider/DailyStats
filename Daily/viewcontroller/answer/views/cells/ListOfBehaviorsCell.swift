@@ -53,6 +53,13 @@ class ListOfBehaviorsCell: UICollectionViewCell {
         return collectionView
     }()
     
+    let hideView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     let noBehaviorsAvailable: UILabel = {
         let label = UILabel()
         label.backgroundColor = .clear
@@ -103,9 +110,16 @@ class ListOfBehaviorsCell: UICollectionViewCell {
     }
     
     private func setupObjects () {
+        // bg view
+        addSubview(hideView)
+        hideView.topAnchor.constraint(equalTo: topAnchor, constant: -70).isActive = true
+        hideView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0).isActive = true
+        hideView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0).isActive = true
+        hideView.heightAnchor.constraint(equalToConstant: 220).isActive = true
+        
         // title
-        addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 90).isActive = true
+        hideView.addSubview(titleLabel)
+        titleLabel.bottomAnchor.constraint(equalTo: hideView.bottomAnchor, constant: -10).isActive = true
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
@@ -135,6 +149,9 @@ class ListOfBehaviorsCell: UICollectionViewCell {
         noBehaviorsAvailable.heightAnchor.constraint(equalToConstant: 150).isActive = true
         noBehaviorsAvailable.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         noBehaviorsAvailable.text = "You haven't added any Behaviors yet."
+        
+        // set views to front
+        bringSubviewToFront(hideView)
     }
 }
 

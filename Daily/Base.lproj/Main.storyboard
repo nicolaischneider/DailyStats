@@ -150,7 +150,9 @@
                         <outlet property="behaviorButton" destination="d2t-08-dlU" id="NQQ-yd-kZ3"/>
                         <outlet property="lastAnsweredLabel" destination="abX-gu-pTb" id="bvQ-f7-Gbx"/>
                         <outlet property="noQuestionsLabel" destination="bFc-zB-IFy" id="hXq-Hl-cpX"/>
+                        <outlet property="settingsButton" destination="Ovk-ee-C9B" id="Mxd-3E-Qvg"/>
                         <outlet property="tableView" destination="geK-Uj-wFD" id="wOl-zL-1pE"/>
+                        <outlet property="titleLabel" destination="1eh-v8-x60" id="PrQ-aC-lPW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1wS-83-7Mo" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -467,11 +469,13 @@
                         <outlet property="addQuestionButton" destination="Xch-sx-LUc" id="iLf-b0-9EL"/>
                         <outlet property="bgView" destination="p8P-1e-zJj" id="hsZ-ue-9X5"/>
                         <outlet property="errorLabel" destination="aaC-na-vwT" id="vsT-ZV-f1S"/>
+                        <outlet property="quitButton" destination="ANr-9f-MRl" id="QC9-Ub-cyp"/>
                         <outlet property="scaleButton" destination="JwD-wg-gZc" id="IQ7-RT-vag"/>
                         <outlet property="textView" destination="dfo-Y9-WkU" id="dHV-R7-bYk"/>
                         <outlet property="title1" destination="Z4e-dK-KId" id="9wd-ej-93t"/>
                         <outlet property="title2" destination="A92-rN-6MM" id="IXb-OO-mbj"/>
                         <outlet property="title3" destination="pJd-Sx-fgx" id="Cos-wa-sgG"/>
+                        <outlet property="titleLabel" destination="ItX-dV-qJE" id="Iri-TZ-Y48"/>
                         <outlet property="yesNoButton" destination="zBS-Jy-eam" id="0Ci-4Z-Jw0"/>
                     </connections>
                 </viewController>
@@ -487,17 +491,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBJ-cv-Gtk">
-                                <rect key="frame" x="20" y="134" width="335" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="zXz-RB-HTn"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bln-iM-tHV">
-                                <rect key="frame" x="0.0" y="204" width="375" height="150"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="150"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This is a test question created by the user himslerf and it can be max this long." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rL9-s1-fmA">
                                         <rect key="frame" x="15" y="10" width="345" height="130"/>
@@ -527,7 +522,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wWO-iE-aMc">
-                                <rect key="frame" x="0.0" y="354" width="375" height="458"/>
+                                <rect key="frame" x="0.0" y="334" width="375" height="478"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Qbt-rd-d6c" id="jtv-Kz-1eJ"/>
@@ -553,14 +548,11 @@
                         <constraints>
                             <constraint firstItem="g9L-iC-Mqf" firstAttribute="bottom" secondItem="wKI-BE-5MS" secondAttribute="bottom" constant="20" id="2Hh-8p-WZt"/>
                             <constraint firstAttribute="trailing" secondItem="bln-iM-tHV" secondAttribute="trailing" id="2aE-Mc-4y5"/>
-                            <constraint firstItem="wWO-iE-aMc" firstAttribute="top" secondItem="bln-iM-tHV" secondAttribute="bottom" id="9at-FV-kqY"/>
-                            <constraint firstItem="gBJ-cv-Gtk" firstAttribute="top" secondItem="lok-JN-aFX" secondAttribute="bottom" constant="10" id="FwK-3b-ljz"/>
+                            <constraint firstItem="wWO-iE-aMc" firstAttribute="top" secondItem="bln-iM-tHV" secondAttribute="bottom" constant="40" id="9at-FV-kqY"/>
                             <constraint firstItem="wWO-iE-aMc" firstAttribute="leading" secondItem="RoP-g2-dan" secondAttribute="leading" id="HGh-rd-H9T"/>
-                            <constraint firstItem="gBJ-cv-Gtk" firstAttribute="leading" secondItem="g9L-iC-Mqf" secondAttribute="leading" constant="20" id="IEs-sD-xEB"/>
                             <constraint firstAttribute="trailing" secondItem="wWO-iE-aMc" secondAttribute="trailing" id="MFh-bZ-R5c"/>
                             <constraint firstItem="g9L-iC-Mqf" firstAttribute="trailing" secondItem="lok-JN-aFX" secondAttribute="trailing" constant="30" id="Wxv-B2-oFb"/>
-                            <constraint firstItem="bln-iM-tHV" firstAttribute="top" secondItem="gBJ-cv-Gtk" secondAttribute="bottom" constant="20" id="YRn-kQ-yPd"/>
-                            <constraint firstItem="g9L-iC-Mqf" firstAttribute="trailing" secondItem="gBJ-cv-Gtk" secondAttribute="trailing" constant="20" id="ZY5-ei-bLm"/>
+                            <constraint firstItem="bln-iM-tHV" firstAttribute="top" secondItem="lok-JN-aFX" secondAttribute="bottom" constant="20" id="apf-5r-f06"/>
                             <constraint firstAttribute="bottom" secondItem="wWO-iE-aMc" secondAttribute="bottom" id="gEL-w2-CqV"/>
                             <constraint firstItem="wKI-BE-5MS" firstAttribute="centerX" secondItem="RoP-g2-dan" secondAttribute="centerX" id="rZ4-nn-1hr"/>
                             <constraint firstItem="lok-JN-aFX" firstAttribute="top" secondItem="g9L-iC-Mqf" secondAttribute="top" constant="30" id="yio-JE-53f"/>
@@ -647,6 +639,7 @@
                     <connections>
                         <outlet property="noBehaviorsLabel" destination="6Hc-Lo-gbn" id="cHZ-ZM-Mhk"/>
                         <outlet property="plusButton" destination="BJt-T7-UXK" id="T8i-t5-LXn"/>
+                        <outlet property="quitButton" destination="fBS-yg-WWx" id="YjN-e0-A2A"/>
                         <outlet property="titleLabell" destination="iJZ-Mv-owQ" id="8I4-6j-TgG"/>
                     </connections>
                 </viewController>

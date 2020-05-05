@@ -44,6 +44,13 @@ struct Question: Codable {
         self.stats.updateStats(answer: ans, behaviors: behaviors)
     }
     
+    mutating func updateStats_ (ans: Int, behaviors: [Behavior], _time: Date) {
+        self.timesAnswered += 1
+        self.answers.append(Answer(ans: ans, date: _time, behaviors: behaviors))
+        self.lastAnswered = Date(timeIntervalSinceNow: .zero)
+        self.stats.updateStats(answer: ans, behaviors: behaviors)
+    }
+    
     public static func updateQuestions (listOfQuestions: [Question]) {
         let questionsData = try! JSONEncoder().encode(listOfQuestions)
         UserDefaults.standard.set(questionsData, forKey: "userQuestions")

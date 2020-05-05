@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B100AF992449331D00E14811 /* TimeButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100AF982449331D00E14811 /* TimeButtonsView.swift */; };
+		B100AF9B2449390A00E14811 /* StatsTimePeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = B100AF9A2449390A00E14811 /* StatsTimePeriod.swift */; };
 		B105352824098FF700F7A833 /* ListOfBehaviorsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105352724098FF700F7A833 /* ListOfBehaviorsCell.swift */; };
 		B105352A240B2EC200F7A833 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1053529240B2EC200F7A833 /* Answer.swift */; };
 		B105352C240B2F1500F7A833 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105352B240B2F1500F7A833 /* Stats.swift */; };
@@ -14,7 +16,6 @@
 		B105B20923D4E92E0083C5A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B105B20723D4E92E0083C5A5 /* Main.storyboard */; };
 		B105B20B23D4E9320083C5A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B105B20A23D4E9320083C5A5 /* Assets.xcassets */; };
 		B105B20E23D4E9320083C5A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B105B20C23D4E9320083C5A5 /* LaunchScreen.storyboard */; };
-		B105B21923D4E9320083C5A5 /* DailyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105B21823D4E9320083C5A5 /* DailyTests.swift */; };
 		B105B22423D4E9320083C5A5 /* DailyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105B22323D4E9320083C5A5 /* DailyUITests.swift */; };
 		B105B23523D4F2320083C5A5 /* QuestionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105B23423D4F2320083C5A5 /* QuestionsVC.swift */; };
 		B105B23823D510C90083C5A5 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B105B23723D510C90083C5A5 /* QuestionCell.swift */; };
@@ -76,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B100AF982449331D00E14811 /* TimeButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeButtonsView.swift; sourceTree = "<group>"; };
+		B100AF9A2449390A00E14811 /* StatsTimePeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsTimePeriod.swift; sourceTree = "<group>"; };
 		B105352724098FF700F7A833 /* ListOfBehaviorsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfBehaviorsCell.swift; sourceTree = "<group>"; };
 		B1053529240B2EC200F7A833 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		B105352B240B2F1500F7A833 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
@@ -86,7 +89,6 @@
 		B105B20D23D4E9320083C5A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B105B20F23D4E9320083C5A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B105B21423D4E9320083C5A5 /* DailyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B105B21823D4E9320083C5A5 /* DailyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTests.swift; sourceTree = "<group>"; };
 		B105B21A23D4E9320083C5A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B105B21F23D4E9320083C5A5 /* DailyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B105B22323D4E9320083C5A5 /* DailyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUITests.swift; sourceTree = "<group>"; };
@@ -200,7 +202,6 @@
 		B105B21723D4E9320083C5A5 /* DailyTests */ = {
 			isa = PBXGroup;
 			children = (
-				B105B21823D4E9320083C5A5 /* DailyTests.swift */,
 				B105B21A23D4E9320083C5A5 /* Info.plist */,
 			);
 			path = DailyTests;
@@ -245,6 +246,7 @@
 		B10E5049240C5C60001552F5 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				B100AF982449331D00E14811 /* TimeButtonsView.swift */,
 				B10E504A240C5E42001552F5 /* GeneralInfoCell.swift */,
 				B1BBB43E23FF127500D456D3 /* GeneralInfoStackViewCell.swift */,
 				B10E504C240C65E1001552F5 /* StatsCell.swift */,
@@ -430,6 +432,7 @@
 			isa = PBXGroup;
 			children = (
 				B1BBB44023FF19DE00D456D3 /* QuestionStatType.swift */,
+				B100AF9A2449390A00E14811 /* StatsTimePeriod.swift */,
 				B149EA12240065A80058C45C /* QuestionsEditor.swift */,
 				B1F138E923F4B8570085B10D /* AnswerProtocol.swift */,
 				B149142F240899C90090C23C /* BehaviorDelegate.swift */,
@@ -587,6 +590,7 @@
 				B12052E423DFA342005FD629 /* SingleQuestionVC.swift in Sources */,
 				B1843F1923F2297100297240 /* YesNoAnswerCell.swift in Sources */,
 				B105352824098FF700F7A833 /* ListOfBehaviorsCell.swift in Sources */,
+				B100AF9B2449390A00E14811 /* StatsTimePeriod.swift in Sources */,
 				B10E504D240C65E1001552F5 /* StatsCell.swift in Sources */,
 				B10E504F240C66AC001552F5 /* StatsStackViewCell.swift in Sources */,
 				B160110223DE4F1B00837198 /* Question.swift in Sources */,
@@ -604,6 +608,7 @@
 				B105B20423D4E92E0083C5A5 /* AppDelegate.swift in Sources */,
 				B183A7462405941B007148E2 /* EmptyCell.swift in Sources */,
 				B105B23523D4F2320083C5A5 /* QuestionsVC.swift in Sources */,
+				B100AF992449331D00E14811 /* TimeButtonsView.swift in Sources */,
 				B13FB8DD23DE3C98003F389E /* QuestionsController.swift in Sources */,
 				B1BBB43F23FF127500D456D3 /* GeneralInfoStackViewCell.swift in Sources */,
 				B166D1CB2407530400677BB7 /* BehaviorController.swift in Sources */,
@@ -619,7 +624,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B105B21923D4E9320083C5A5 /* DailyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,7 +799,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.schneider-productions.Daily";
 				PRODUCT_NAME = DailyStats;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -817,7 +821,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.schneider-productions.Daily";
 				PRODUCT_NAME = DailyStats;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -843,7 +847,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daily.app/Daily";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyStats.app/DailyStats";
 			};
 			name = Debug;
 		};
@@ -864,7 +868,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Daily.app/Daily";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyStats.app/DailyStats";
 			};
 			name = Release;
 		};

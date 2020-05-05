@@ -16,6 +16,17 @@ class SingleQuestionVC: UIViewController {
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
     
+    // buttons
+    lazy var stackView: UIStackView = {
+        let sv = UIStackView(arrangedSubviews: [])
+        sv.backgroundColor = .clear
+        sv.axis = .horizontal
+        sv.spacing = 0
+        sv.distribution = .fillEqually
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    
     // general information
     @IBOutlet weak var tableView: UITableView!
     let statsCell = "statsCell"
@@ -37,6 +48,10 @@ class SingleQuestionVC: UIViewController {
         controller.dimissVC()
     }
     
+    func reloadData () {
+        tableView.reloadData()
+    }
+    
     private func setupTableView () {
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
@@ -44,6 +59,16 @@ class SingleQuestionVC: UIViewController {
         tableView.register(GeneralInfoCell.self, forCellReuseIdentifier: generalInfoCell)
         tableView.register(StatsCell.self, forCellReuseIdentifier: statsCell)
         tableView.register(EmptyCell.self, forCellReuseIdentifier: emptyCell)
+    }
+    
+    private func setupStackViewButtons () {
+        for i in 0...2 {
+            let buttonView = TimeButtonsView()
+            let buttonProperty = controller.getButtonAtIndex(index: i)
+            buttonView.setButtonTitle(titleString: buttonProperty!.0, active: buttonProperty!.1, timePeriod: buttonProperty!.2)
+            buttonView.delegate = self
+            stackView.addArrangedSubview(buttonView)
+        }
     }
     
     private func setupObjects () {
@@ -67,6 +92,15 @@ class SingleQuestionVC: UIViewController {
         deleteButton.layer.shadowRadius = 10
         deleteButton.layer.shadowOpacity = 0.6
         deleteButton.layer.shadowOffset = CGSize(width: 0, height: 0)
+        
+        // setup stackview
+        setupStackViewButtons()
+        view.addSubview(stackView)
+        stackView.topAnchor.constraint(equalTo: bgView.bottomAnchor).isActive = true
+        stackView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        stackView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: tableView.topAnchor).isActive = true
+        stackView.isHidden = !controller.shouldShowStats()
     }
     
     var loadedOnce = false
@@ -84,7 +118,7 @@ extension SingleQuestionVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+                
         // empty cell
         if indexPath.row == emptyCellIndex {
             loadedOnce = true
@@ -101,7 +135,7 @@ extension SingleQuestionVC: UITableViewDelegate, UITableViewDataSource {
             let graphPerc = controller.getPercentagesFloat()
             let color = ColorPicker.getColor(controller.getQuestionColor())
             let behaviors = controller.getBehaviors()
-            cell.setupObjects(ans: answers, percentages: percentages, graphPerc: graphPerc, color: color, behaviors: behaviors)
+            cell.setupObjects(ans: answers, percentages: percentages, graphPerc: graphPerc, color: color, behaviors: behaviors, frameWidth: view.frame.width)
             
             return cell
             
@@ -126,4 +160,20 @@ extension SingleQuestionVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+}
+
+extension SingleQuestionVC: StatsTimePeriodDelegate {
+
+    func changeStatsTimePeriod(to: StatsTimePeriod) {
+        for view in stackView.arrangedSubviews as! [TimeButtonsView] {
+            if view.statsTime == to {
+                view.makeButtonActive(true)
+            } else {
+                view.makeButtonActive(false)
+            }
+        }
+        
+        controller.updateStatsTimePeriod(timePeriod: to)
+    }
+
 }

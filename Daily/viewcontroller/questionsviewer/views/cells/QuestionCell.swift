@@ -93,11 +93,11 @@ class QuestionCell: UITableViewCell {
     
     private func setupObjects () {
         // shadow view
-        addSubview(shadowView)
+        /*addSubview(shadowView)
         shadowView.topAnchor.constraint(equalTo: topAnchor, constant: 11).isActive = true
         shadowView.leftAnchor.constraint(equalTo: leftAnchor, constant: 21).isActive = true
         shadowView.rightAnchor.constraint(equalTo: rightAnchor, constant: -21).isActive = true
-        shadowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6).isActive = true
+        shadowView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -6).isActive = true*/
         
         // bg view
         addSubview(bgView)

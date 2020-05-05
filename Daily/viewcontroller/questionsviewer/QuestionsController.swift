@@ -20,6 +20,13 @@ class QuestionsController {
         self.dataManager = DataManager()
         self.statsComp = StatsComputer()
         self.statsComp.delegate = self
+        
+        // set notification
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func willEnterForeground() {
+        view.reloadData()
     }
     
     func getNumberofQuestions() -> Int {
@@ -32,13 +39,15 @@ class QuestionsController {
         return list[index]
     }
     
-    func getStatsForQuestionAtIndex (index: Int) -> String {
+    /*func getStatsForQuestionAtIndex (index: Int) -> String {
         let list = dataManager.getQuestions()
         let question = list[index]
         
         switch question.type {
         case .yesNo:
             //if let scores = StatsComputer.avgStatsForYesNoQuestion(question: question) {
+            //if question.timesAnswered 
+            
             if let scores = statsComp.getAvgStatsForQuestion(question: question) {
                 return String(scores[0]) + "% Yes; " + String(scores[1]) + "% No"
             } else {
@@ -54,7 +63,7 @@ class QuestionsController {
             print("error: non existing type")
             return ""
         }
-    }
+    }*/
     
     func getLastAnswered () -> String {
         if let lastAnswered = dataManager.getLastAnswered() {
@@ -169,10 +178,6 @@ class QuestionsController {
         view.present(settingsController, animated:true, completion:nil)
     }
     
-    private func reloadData () {
-        view.reloadData()
-    }
-    
     private func reloadLastAnswered () {
         view.reloadLastAnswered()
     }
@@ -182,17 +187,17 @@ extension QuestionsController: QuestionsEditorDelegate, BehaviorDelegate {
     // MARK: - QUESTIONS
     func addQuestion(question: Question) {
         dataManager.addQuestion(question: question)
-        reloadData()
+        view.reloadData()
     }
     
     func deleteQuestion(questionID: UUID) {
         dataManager.deleteQuestion(questionID: questionID)
-        reloadData()
+        view.reloadData()
     }
     
     func updateStatsOfQuestion(questionID: UUID, answerIndex: Int, behaviors: [Behavior]) {
         dataManager.updateStatsOfQuestion(questionID: questionID, answerIndex: answerIndex, behaviors: behaviors)
-        reloadData()
+        view.reloadData()
         reloadLastAnswered()
     }
     

@@ -81,7 +81,7 @@ class StatsStackViewCell: UIView {
         percentage.text = perc
         graph.backgroundColor = color
         setupBehaviors(behaviors: behaviors)
-        
+                
         // add answer
         addSubview(answer)
         answer.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true

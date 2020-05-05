@@ -12,6 +12,10 @@ class NewQuestionVC: UIViewController, UITextViewDelegate {
     
     var controller: NewQuestionController!
     
+    // top objects
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var quitButton: UIButton!
+    
     // question text field
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var bgView: UIView!
@@ -41,6 +45,18 @@ class NewQuestionVC: UIViewController, UITextViewDelegate {
         collectionView.backgroundColor = .clear
         collectionView.register(ColorCell.self, forCellWithReuseIdentifier: "colorCell")
         return collectionView
+    }()
+    
+    let hideView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 20
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowRadius = 8
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     // error
@@ -134,6 +150,13 @@ class NewQuestionVC: UIViewController, UITextViewDelegate {
     }
     
     private func setupCollectionView () {
+        // bg view
+        view.addSubview(hideView)
+        hideView.topAnchor.constraint(equalTo: view.topAnchor, constant: -20).isActive = true
+        hideView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        hideView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        hideView.heightAnchor.constraint(equalToConstant: 210).isActive = true
+        
         view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -141,6 +164,11 @@ class NewQuestionVC: UIViewController, UITextViewDelegate {
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        // bring views to front
+        view.bringSubviewToFront(hideView)
+        view.bringSubviewToFront(quitButton)
+        view.bringSubviewToFront(titleLabel)
     }
     
     private func setupObjects () {

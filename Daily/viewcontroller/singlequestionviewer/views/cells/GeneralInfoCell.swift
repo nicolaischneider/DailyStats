@@ -38,6 +38,13 @@ class GeneralInfoCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
+    private func resetStackView (stackView: UIStackView) {
+        for view in stackView.arrangedSubviews {
+            view.isHidden = true
+            stackView.removeArrangedSubview(view)
+        }
+    }
+    
     private func addCellsToStackViews (typeContent: (String,String), timesContent: (String,String), createdContent: (String,String)) {
         // type
         let typeCell = GeneralInfoStackViewCell()
@@ -57,6 +64,12 @@ class GeneralInfoCell: UITableViewCell {
     
     func setupObjects (typeContent: (String,String), timesContent: (String,String), createdContent: (String,String)) {
         // get stackviews ready
+        if leftStackView.arrangedSubviews.count > 0 {
+            resetStackView(stackView: leftStackView)
+        }
+        if rightStackView.arrangedSubviews.count > 0 {
+            resetStackView(stackView: rightStackView)
+        }
         addCellsToStackViews(typeContent: typeContent, timesContent: timesContent, createdContent: createdContent)
         
         // add left stackview to cell

@@ -17,14 +17,28 @@ class QuestionsVC: UIViewController {
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet weak var behaviorButton: UIButton!
     @IBOutlet weak var noQuestionsLabel: UILabel!
+    @IBOutlet weak var settingsButton: UIButton!
     
     // labels
     @IBOutlet weak var lastAnsweredLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     // table view
     @IBOutlet var tableView: UITableView!
     let cellName = "cellName"
     let emptyCell = "emptyCell"
+    
+    let hideView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 20
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowRadius = 8
+        view.layer.shadowOpacity = 0.3
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +100,19 @@ class QuestionsVC: UIViewController {
         tableView.register(EmptyCell.self, forCellReuseIdentifier: emptyCell)
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
+        
+        // bg view
+        view.addSubview(hideView)
+        hideView.topAnchor.constraint(equalTo: view.topAnchor, constant: -20).isActive = true
+        hideView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
+        hideView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0).isActive = true
+        hideView.heightAnchor.constraint(equalToConstant: 210).isActive = true
+        
+        // bring views to front
+        view.bringSubviewToFront(hideView)
+        view.bringSubviewToFront(settingsButton)
+        view.bringSubviewToFront(titleLabel)
+        view.bringSubviewToFront(lastAnsweredLabel)
     }
 }
 
@@ -111,7 +138,7 @@ extension QuestionsVC: UITableViewDelegate, UITableViewDataSource {
         cell.questionType.text = "Type: " + TypeMgr.getTextOfType(question.type)
         cell.coloredView.backgroundColor = questionColor
         cell.answeredLabel.text = "Answered " + String(question.timesAnswered) + " times"
-        cell.averageLabel.text = controller.getStatsForQuestionAtIndex(index: indexPath.row)
+        //cell.averageLabel.text = controller.getStatsForQuestionAtIndex(index: indexPath.row)
         
         return cell
     }

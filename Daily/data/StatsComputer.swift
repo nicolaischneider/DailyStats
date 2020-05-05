@@ -13,7 +13,7 @@ class StatsComputer: NSObject {
     var delegate: BehaviorDelegate!
     
     let maxNumOfBehaviors = 2 // max number of behaviors / answer
-    let minNumOfNeededAppearances = 5 // needed appearance of behavior to be added to answer
+    let minNumOfNeededAppearances = 2 // needed appearance of behavior to be added to answer
     
     override init() {
         super.init()
@@ -30,20 +30,50 @@ class StatsComputer: NSObject {
         return nil
     }
     
-    func getAvgStatsForQuestion (question: Question) -> [Float]? {
-        if question.timesAnswered == 0 { return nil }
+    // MARK: - average stats for question
+    private func getListOfPercentagesFor (_ answerList: [Int], timesAnswered: Int) -> [Float] {
         
         var listOfPercentages = [Float]()
         
+        if timesAnswered == 0 {
+            for _ in answerList { listOfPercentages.append(0) }
+            return listOfPercentages
+        }
+        
         // go thorugh all possible answers (e.g. yes/no has two) and compute their percentage
-        for answer in question.stats.answers {
-            let answerPercentage = (Float(answer) / Float(question.timesAnswered)) * 100
+        for answer in answerList {
+            let answerPercentage = (Float(answer) / Float(timesAnswered)) * 100
             listOfPercentages.append(answerPercentage)
         }
+        
         return listOfPercentages
     }
     
-    func getAvgScoreForQuestion (question: Question) -> Float? {
+    func getAvgStatsForQuestion (question: Question) -> [Float] {
+        return getListOfPercentagesFor(question.stats.answers, timesAnswered: question.timesAnswered)
+    }
+    
+    func getAvgStatsForQuestionForTime (question: Question, time: TimeInterval) -> [Float]? {
+        // COMPUTE AN ARRAY [Int] EQUIVALENT TO question.stats.answers
+        var answers = [Int]()
+        for _ in question.stats.answers { answers.append(0) }
+        var timesAnswered = 0
+                
+        for answer in question.answers.reversed() {
+            // answer was given outside of time interval
+            if answer.dateOfAnswer.timeIntervalSince(Date()-time) < 0 {
+                break
+            }
+            answers[answer.answer] += 1
+            timesAnswered += 1
+        }
+        
+        // AND RETURN getListOfPercentagesFor THAT ARRAY
+        return getListOfPercentagesFor(answers, timesAnswered: timesAnswered)
+    }
+    
+    // MARK: - average score for question - curr. not used
+    /*func getAvgScoreForQuestion (question: Question) -> Float? {
         if question.timesAnswered == 0 { return nil }
         
         var totalScore = 0
@@ -55,12 +85,15 @@ class StatsComputer: NSObject {
         return avgScore
     }
     
-    func getMostUsedBehaviorsForQuestion (question: Question) -> [[Behavior?]]? {
-        if question.timesAnswered == 0 { return nil }
-        
+    func getAvgScoreForQuestionForTime (question: Question, time: TimeInterval) -> Float? {
+        getAvgScoreForQuestion(question: question)
+    }*/
+    
+    // MARK: - most used behaviors for question
+    func getMostUsedBehaviors (forList list: [[UUID:Int]]) -> [[Behavior?]]? {
         var listOfbehaviors = [[Behavior?]]()
             
-        for answer in question.stats.selectedBehaviors {
+        for answer in list {
             var answerList = [(UUID,Int)]() // behavior id and appearances
             for behavior in answer {
                 
@@ -100,5 +133,38 @@ class StatsComputer: NSObject {
         // return nil for empty list
         if listOfbehaviors.count == 0 { return nil }
         else { return listOfbehaviors }
+        
     }
+    
+    func getMostUsedBehaviorsForQuestionForTime (question: Question, time: TimeInterval) -> [[Behavior?]]? {
+        if question.timesAnswered == 0 { return nil }
+        
+        // create equivalence to question.stats.selectedBehaviors
+        var listOfPossibleAnswers = [[UUID:Int]]()
+        for _ in question.stats.answers { listOfPossibleAnswers.append([UUID:Int]()) }
+        
+        for answer in question.answers.reversed() {
+            // answer was given outside of time interval
+            if answer.dateOfAnswer.timeIntervalSince(Date()-time) < 0 {
+                break
+            }
+                    
+            for behavior in answer.behaviors {
+                if let occ = listOfPossibleAnswers[answer.answer][behavior.id] {
+                    listOfPossibleAnswers[answer.answer][behavior.id] = occ+1
+                } else {
+                    listOfPossibleAnswers[answer.answer][behavior.id] = 1
+                }                
+            }
+        }
+        
+        // get list of behaviors
+        return getMostUsedBehaviors(forList: listOfPossibleAnswers)
+    }
+    
+    func getMostUsedBehaviorsForQuestion (question: Question) -> [[Behavior?]]? {
+        if question.timesAnswered == 0 { return nil }
+        return getMostUsedBehaviors(forList: question.stats.selectedBehaviors)
+    }
+    
 }

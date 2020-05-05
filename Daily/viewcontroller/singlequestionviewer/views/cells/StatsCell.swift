@@ -19,6 +19,7 @@ class StatsCell: UITableViewCell {
         return sv
     }()
     
+//    var frameWidth: Float!
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -29,18 +30,29 @@ class StatsCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    private func addCellsToStackView (ans: [String], percentages: [String], graphPerc: [Float], color: UIColor, behaviors: [[Behavior?]]) {
-        
+    private func resetStackView () {
+        for view in stackView.arrangedSubviews {
+            view.isHidden = true
+            stackView.removeArrangedSubview(view)
+        }
+    }
+    
+    private func addCellsToStackView (ans: [String], percentages: [String], graphPerc: [Float], color: UIColor, behaviors: [[Behavior?]], frameWidth: CGFloat) {
         for i in 0..<ans.count {
             let answerCell = StatsStackViewCell()
-            answerCell.setupObjects(ans: ans[i], perc: percentages[i], graphWidth: Float(frame.width/3)*graphPerc[i], color: color, behaviors: behaviors[i])
+            //let fw = contentView.frame.width
+            let graphWidth = Float(frameWidth/3)*graphPerc[i]
+            answerCell.setupObjects(ans: ans[i], perc: percentages[i], graphWidth: graphWidth, color: color, behaviors: behaviors[i])
             stackView.addArrangedSubview(answerCell)
         }
     }
     
-    func setupObjects (ans: [String], percentages: [String], graphPerc: [Float], color: UIColor, behaviors: [[Behavior?]]) {
+    func setupObjects (ans: [String], percentages: [String], graphPerc: [Float], color: UIColor, behaviors: [[Behavior?]], frameWidth: CGFloat) {
         // get stack view ready with stats
-        addCellsToStackView(ans: ans, percentages: percentages, graphPerc: graphPerc, color: color, behaviors: behaviors)
+        if stackView.arrangedSubviews.count > 0 {
+            resetStackView()
+        }
+        addCellsToStackView(ans: ans, percentages: percentages, graphPerc: graphPerc, color: color, behaviors: behaviors, frameWidth: frameWidth)
         
         // add stackview
         addSubview(stackView)
