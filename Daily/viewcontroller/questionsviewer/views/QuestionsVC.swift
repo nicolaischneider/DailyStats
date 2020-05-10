@@ -18,6 +18,7 @@ class QuestionsVC: UIViewController {
     @IBOutlet weak var behaviorButton: UIButton!
     @IBOutlet weak var noQuestionsLabel: UILabel!
     @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var tutorialButton: UIButton!
     
     // labels
     @IBOutlet weak var lastAnsweredLabel: UILabel!
@@ -64,6 +65,10 @@ class QuestionsVC: UIViewController {
     
     @IBAction func behaviorAction(_ sender: Any) {
         controller.navigateToBehaviorView()
+    }
+    
+    @IBAction func tutorialAction(_ sender: Any) {
+        controller.navigateToTutorial()
     }
     
     func reloadData() {
@@ -113,6 +118,7 @@ class QuestionsVC: UIViewController {
         view.bringSubviewToFront(settingsButton)
         view.bringSubviewToFront(titleLabel)
         view.bringSubviewToFront(lastAnsweredLabel)
+        view.bringSubviewToFront(tutorialButton)
     }
 }
 

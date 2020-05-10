@@ -24,6 +24,9 @@
 		B10E504F240C66AC001552F5 /* StatsStackViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E504E240C66AC001552F5 /* StatsStackViewCell.swift */; };
 		B10E5051240C8D4B001552F5 /* BehaviorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10E5050240C8D4B001552F5 /* BehaviorView.swift */; };
 		B10F28192405C58200FFCCA2 /* NotificationTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10F28182405C58200FFCCA2 /* NotificationTime.swift */; };
+		B11129552462366400BFFB31 /* TutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11129542462366400BFFB31 /* TutorialVC.swift */; };
+		B11129572462367100BFFB31 /* TutorialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11129562462367100BFFB31 /* TutorialController.swift */; };
+		B111295A24623E3B00BFFB31 /* TutorialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B111295924623E3B00BFFB31 /* TutorialCell.swift */; };
 		B12052E423DFA342005FD629 /* SingleQuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052E323DFA342005FD629 /* SingleQuestionVC.swift */; };
 		B12052E623DFA36E005FD629 /* NewQuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052E523DFA36E005FD629 /* NewQuestionVC.swift */; };
 		B12052E823DFA3B6005FD629 /* NewQuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12052E723DFA3B6005FD629 /* NewQuestionController.swift */; };
@@ -100,6 +103,9 @@
 		B10E504E240C66AC001552F5 /* StatsStackViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStackViewCell.swift; sourceTree = "<group>"; };
 		B10E5050240C8D4B001552F5 /* BehaviorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorView.swift; sourceTree = "<group>"; };
 		B10F28182405C58200FFCCA2 /* NotificationTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTime.swift; sourceTree = "<group>"; };
+		B11129542462366400BFFB31 /* TutorialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialVC.swift; sourceTree = "<group>"; };
+		B11129562462367100BFFB31 /* TutorialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialController.swift; sourceTree = "<group>"; };
+		B111295924623E3B00BFFB31 /* TutorialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCell.swift; sourceTree = "<group>"; };
 		B12052E323DFA342005FD629 /* SingleQuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleQuestionVC.swift; sourceTree = "<group>"; };
 		B12052E523DFA36E005FD629 /* NewQuestionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionVC.swift; sourceTree = "<group>"; };
 		B12052E723DFA3B6005FD629 /* NewQuestionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewQuestionController.swift; sourceTree = "<group>"; };
@@ -265,6 +271,32 @@
 			path = cells;
 			sourceTree = "<group>";
 		};
+		B11129522462363400BFFB31 /* tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				B11129532462364200BFFB31 /* views */,
+				B11129562462367100BFFB31 /* TutorialController.swift */,
+			);
+			path = tutorial;
+			sourceTree = "<group>";
+		};
+		B11129532462364200BFFB31 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				B11129542462366400BFFB31 /* TutorialVC.swift */,
+				B111295824623E1C00BFFB31 /* cells */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		B111295824623E1C00BFFB31 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				B111295924623E3B00BFFB31 /* TutorialCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		B12052DF23DFA2E1005FD629 /* newquestion */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +402,7 @@
 		B166D1C5240752A000677BB7 /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
+				B11129522462363400BFFB31 /* tutorial */,
 				B166D1BF2407194F00677BB7 /* settings */,
 				B105B23123D4F1E10083C5A5 /* questionsviewer */,
 				B166D1C6240752CF00677BB7 /* behaviors */,
@@ -578,10 +611,12 @@
 				B149142E240866720090C23C /* AddBehaviorVC.swift in Sources */,
 				B1BBB44423FF418200D456D3 /* ButtonPress.swift in Sources */,
 				B12052E623DFA36E005FD629 /* NewQuestionVC.swift in Sources */,
+				B111295A24623E3B00BFFB31 /* TutorialCell.swift in Sources */,
 				B1F138E723F4AF380085B10D /* ScaleButtonCell.swift in Sources */,
 				B14E4D1823EF792F00FAAF9F /* AnswerController.swift in Sources */,
 				B193E2F62405B254002CB061 /* Notifications.swift in Sources */,
 				B14E4D1323EF790900FAAF9F /* AnswerVC.swift in Sources */,
+				B11129572462367100BFFB31 /* TutorialController.swift in Sources */,
 				B160110623DE5F2800837198 /* Colors.swift in Sources */,
 				B105B23823D510C90083C5A5 /* QuestionCell.swift in Sources */,
 				B12052EE23E47F28005FD629 /* SingleQuestionController.swift in Sources */,
@@ -606,6 +641,7 @@
 				B1843F1C23F232C800297240 /* Scale1to5AnswerCell.swift in Sources */,
 				B1B403932408048C005B1806 /* BehaviorCell.swift in Sources */,
 				B105B20423D4E92E0083C5A5 /* AppDelegate.swift in Sources */,
+				B11129552462366400BFFB31 /* TutorialVC.swift in Sources */,
 				B183A7462405941B007148E2 /* EmptyCell.swift in Sources */,
 				B105B23523D4F2320083C5A5 /* QuestionsVC.swift in Sources */,
 				B100AF992449331D00E14811 /* TimeButtonsView.swift in Sources */,

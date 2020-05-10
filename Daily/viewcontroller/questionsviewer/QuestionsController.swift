@@ -178,6 +178,17 @@ class QuestionsController {
         view.present(settingsController, animated:true, completion:nil)
     }
     
+    func navigateToTutorial () {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let tutorialsController = storyBoard.instantiateViewController(withIdentifier: "TutorialViewController") as! TutorialVC
+        tutorialsController.controller = TutorialController(view: tutorialsController)
+        
+        // segue
+        tutorialsController.modalPresentationStyle = .overCurrentContext
+        tutorialsController.modalTransitionStyle = .crossDissolve
+        view.present(tutorialsController, animated:true, completion:nil)
+    }
+    
     private func reloadLastAnswered () {
         view.reloadLastAnswered()
     }
